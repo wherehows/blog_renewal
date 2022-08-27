@@ -21,9 +21,8 @@ const Sidebar = ({ refactoredDatas, onClickCategoryItem }: CategoryProps) => {
 export default Sidebar
 
 const Wrapper = styled('div')(() => ({
-  width: '14rem ',
+  width: '12rem',
   paddingLeft: '27vw',
-  paddingRight: '1rem',
   height: '100vh',
   backgroundColor: '#f8f8f4',
   position: 'fixed',

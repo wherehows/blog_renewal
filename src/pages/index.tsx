@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 import GlobalCss from '../templates/GlobalCss'
 import '../styles/global.css'
 import Sidebar from '@components/Sidebar'
 import Content from '@components/Content'
-import '../fonts/NotoSansKR-Bold.otf'
 
 interface IndexPageProps {
   data: {

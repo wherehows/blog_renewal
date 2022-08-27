@@ -8,17 +8,3 @@ export default function Post(data:any) {
       </div>
   )
 }
-
-// export const pageQuery = graphql``
-//   query($path: String!) {
-//     markdownRemark(frontmatter: { slug: { eq: $path } }) {
-//       html
-//       frontmatter {
-//         date
-//         slug
-//         title
-//       }
-//     }
-//   }
-// `
-
