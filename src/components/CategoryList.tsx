@@ -7,6 +7,8 @@ interface CategoryProps {
   onClickCategoryItem: (id: string) => void
 }
 
+const a = [1, 2, 3] as const
+
 const CategoryList = ({
   refactoredDatas,
   onClickCategoryItem,
@@ -16,6 +18,7 @@ const CategoryList = ({
       {refactoredDatas.map(refactoredData => {
         return (
           <CategoryItem
+            key={refactoredData.parent}
             refactoredData={refactoredData}
             onClickCategoryItem={onClickCategoryItem}
           />
@@ -34,3 +37,4 @@ const Wrapper = styled('ul')(() => ({
   position: 'relative',
   padding: 0,
 }))
+

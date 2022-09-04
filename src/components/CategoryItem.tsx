@@ -18,22 +18,22 @@ const CategoryItem = ({
           return <ListWrapper>{subTitle}</ListWrapper>
         })
       ) : (
-        <ListWrapper>
+        <>
           <ListWrapper>
             <FolderName>{parent}</FolderName>
           </ListWrapper>
           <ParentWrapper>
             {children.map(({ subTitle, id }) => {
               return (
-                <ListWrapper>
+                <ChildListWrapper key={id}>
                   <Button onClick={() => onClickCategoryItem(id)}>
                     {subTitle}
                   </Button>
-                </ListWrapper>
+                </ChildListWrapper>
               )
             })}
           </ParentWrapper>
-        </ListWrapper>
+        </>
       )}
     </>
   )
@@ -48,7 +48,8 @@ const ListWrapper = styled('li')(() => ({
 }))
 
 const ParentWrapper = styled('ul')(() => ({
-  padding: '0.1rem 0 0.1rem 1.2rem',
+  padding: 0,
+  margin: '0.14rem 0 0.1rem 0',
 }))
 
 const FolderName = styled('div')(() => ({
@@ -68,6 +69,12 @@ const Button = styled('button')(() => ({
   padding: '0',
 }))
 
+const ChildListWrapper = styled('li')(() => ({
+  listStyleType: 'none',
+  padding: '0',
+  margin: '0 0 0 1.8rem',
+}))
+
 // const StyledLink = styled(Link)(() => ({
 //   color: 'black',
 //   textDecoration: 'none',
@@ -83,3 +90,4 @@ const Button = styled('button')(() => ({
 //     backgroundColor: '#f59000',
 //   },
 // }))
+

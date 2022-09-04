@@ -14,3 +14,4 @@ export default GlobalCss
 const Wrapper = styled('div')(() => ({
   display: 'flex',
 }))
+

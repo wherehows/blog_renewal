@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { graphql } from 'gatsby'
 import GlobalCss from '../templates/GlobalCss'
 import '../styles/global.css'
@@ -20,7 +20,9 @@ const IndexPage = ({
 }: IndexPageProps) => {
   const [selectedContentId, setSelectedContentId] = useState<string | null>(
     null,
+
   )
+
   const refactoredDatas = refactorData(edges)
   let html = null
 
@@ -39,7 +41,7 @@ const IndexPage = ({
         refactoredDatas={refactoredDatas}
         onClickCategoryItem={setSelectedContentId}
       />
-      <Content content={html} />
+      <Content content={html} list={edges}/>
     </GlobalCss>
   )
 }
