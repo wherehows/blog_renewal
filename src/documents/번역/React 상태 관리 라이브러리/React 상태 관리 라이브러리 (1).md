@@ -34,19 +34,43 @@ slug: '/translate/react-state-management-1'
 
 인식하지 못했겠지만 개발자 여러분들은 이 행위를 자연스럽게 해왔습니다. 이벤트 핸들러 내부에서 state setter를 호출하는 것이 (1)에 해당되고, state setter를 호출함으로서 (2), (3)이 자연스럽게 이루어집니다. (2)를 보면 알겠지만 리액트는 이름과는 다르게 다른 프레임워크(Angular, Svelete, Vue)처럼 ‘reactive’하지 않습니다. 이는 리액트가 ‘단방향 데이터 바인딩(one way data binding)’이기 때문입니다.
 
+위 내용을 이해했다면, 아래 버튼을 누를 때마다 count는 분명 증가하는 것을 console을 통해서 확인할 수 있지만, 화면에는 계속 0이 표시되는 이유를 이해할 것입니다.
+
+```javascript
+function App() {
+  let count = 0
+
+  return (
+    <>
+      <button
+        onClick={() => {
+          count += 1
+          console.log(count)
+        }}
+      >
+        CountUp
+      </button>
+      <div>{count}</div>
+    </>
+  )
+}
+```
+
 state setter의 경우, useState, useReducer, this.setState 이거나 redux, mobx, recoil이 각각의 방식으로 상태 변화를 react에게 알릴 것 입니다.
 
 ---
 
 ## 📌 Data Binding
 
-데이터를 View와 연결하는 것을 의미하며, 데이터의 흐름 방향에 따라서 (1) One-way data binding과 (2) Two-way data binding 두가지로 나뉩니다.
+데이터를 View와 연결하는 것을 의미하며, 데이터의 흐름 방향에 따라서 (1) 단방향 데이터 바인딩(One-way data binding)과 (2) 양방향 데이터 바인딩(Two-way data binding) 두가지로 나뉩니다.
 
-이름에서 느껴지듯, 데이터가 한쪽 방향으로밖에 못 흐른다면 One-way data binding 이라고 하고, 이 경우 데이터가 변해야만 UI가 변합니다. 데이터가 양쪽 방향으로 모두 흐를 수 있다면 Two-way data binding이라고 하고, One-way data binding과는 다르게 UI가 변해도 내부 데이터가 변할 수 있습니다. Vue에서는 이를 Model을 이용해서 이루어냅니다.
+이름에서 느껴지듯, 데이터가 한쪽 방향으로밖에 못 흐른다면 단방향 데이터 바인딩 이라고 하고, 이 경우 데이터가 변해야만 UI가 변합니다.
 
-참고 문헌
+![](one-way.png)
 
-1.[Difference Between One-way and Two-way Databinding in Angular](https://reactgo.com/angular-oneway-vs-twoway-binding/) 2.[https://codesandbox.io/s/react-codesandbox-l4w3o6my59?file=/src/index.js](https://codesandbox.io/s/react-codesandbox-l4w3o6my59?file=/src/index.js)
+데이터가 양쪽 방향으로 모두 흐를 수 있다면 양방향 데이터 바인딩이라고 하고, 단방향 데이터 바인딩과는 다르게 UI가 변해도 내부 데이터가 변할 수 있습니다.
+
+![](two-way.png)
 
 ---
 
@@ -118,4 +142,10 @@ const TheComponentsWithState = () ⇒ {
 문제는 TheComponentsWith가 리렌더링 될때마다 state와 state setter를 감싸주는 객체가 새로 생성된다는 것 입니다.
 
 여기까지 이야기를 하고 보면, ContextAPI는 사실 State Management보다는 단순히 상태를 전달하는 역할을 하고 있음을 알 수 있습니다. 맞습니다. 상태는 어딘가에 존재하고, ContextAPI는 단순히 이 상태를 전달해주는 역할에 불과합니다.
+
+---
+
+## 📚 참고 문헌
+
+[Difference Between One-way and Two-way Databinding in Angular](https://reactgo.com/angular-oneway-vs-twoway-binding/)
 

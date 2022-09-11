@@ -49,14 +49,14 @@ const ListWrapper = styled('li')(() => ({
 
 const ParentWrapper = styled('ul')(() => ({
   padding: 0,
-  margin: '0.14rem 0 0.1rem 0',
+  margin: '0.14rem 0 1.1rem 0',
 }))
 
 const FolderName = styled('div')(() => ({
   backgroundColor: 'transparent',
   border: 'none',
   cursor: 'pointer',
-  fontSize: '0.8rem',
+  fontSize: '1rem',
   fontWeight: 'bold',
 }))
 
@@ -65,7 +65,7 @@ const Button = styled('button')(() => ({
   backgroundColor: 'transparent',
   border: 'none',
   cursor: 'pointer',
-  fontSize: '0.8rem',
+  fontSize: '1rem',
   padding: '0',
 }))
 

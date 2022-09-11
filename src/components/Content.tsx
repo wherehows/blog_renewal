@@ -40,7 +40,7 @@ export default Content
 const Wrapper = styled('div')(() => ({
   width: '43rem',
   height: '100%',
-  margin: '0 0 0 calc(20% + 13rem + 2rem)',
+  margin: '0 0 0 calc(18% + 17rem + 2rem)',
 }))
 
 const MarkdownRenderer = styled('div')(() => ({
