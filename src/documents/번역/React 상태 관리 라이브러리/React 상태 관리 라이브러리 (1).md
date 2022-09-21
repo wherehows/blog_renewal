@@ -98,23 +98,27 @@ useReducer 용례와 관련한 구체적인 내용은 [여기](<[https://jsrambl
 
 ```javascript
 // 1. Context를 생성하여 export 합니다.
-export const MyDataContext = React.createContext();
+export const MyDataContext = React.createContext()
+```
 
-// 2. 컴포넌트 내에서 drill down 할 data 를 다음과 같이 넘겨줄 수 있습니다.
-const TheComponentsWithState = () ⇒ {
-    const [state, setState] = useState(’whatever’);
+```javascript
+// 2. 컴포넌트 내에서 drill down할 data를 다음과 같이 넘겨줄 수 있습니다.
+const TheComponentsWithState = () => {
+  const [state, setState] = useState('whatever')
 
-    return (
-        <MyDataContext.Provider value={state}>
-            <ComponentThatNeedsData/>
-        </MyDataContext.Provider>
-    )
+  return (
+    <MyDataContext.Provider value={state}>
+      <ComponentThatNeedsData />
+    </MyDataContext.Provider>
+  )
 }
+```
 
+```javascript
 // 3. TheComponentsWithState 내부의 subcomponent들은, 다음과 같이 데이터를 꺼내어 사용할 수 있습니다.
-const ComponentThatNeedsData = () ⇒ {
-    const data = useContext(MyDataContext);
-    …
+const ComponentThatNeedsData = () => {
+  const data = useContext(MyDataContext);
+  { ... }
 }
 ```
 
@@ -125,17 +129,19 @@ const ComponentThatNeedsData = () ⇒ {
 ContextAPI를 사용하면서 놓칠 수 있는 또 다른 문제점은, 아래 코드처럼 새로 생성되는 객체를 넘기는 것입니다. 놓치기 쉬운 문제죠.
 
 ```javascript
-const TheComponentsWithState = () ⇒ {
-    const [state, setState] = useState(’whatever’);
+const TheComponentsWithState = () => {
+  const [state, setState] = useState('whatever')
 
-    return (
-        <MyDataContext.Provider value={{
+  return (
+    <MyDataContext.Provider
+      value={{
         state,
-        setState
-        }}>
-            <ComponentThatNeedsData/>
-        </MyDataContext.Provider>
-    )
+        setState,
+      }}
+    >
+      <ComponentThatNeedsData />
+    </MyDataContext.Provider>
+  )
 }
 ```
 
