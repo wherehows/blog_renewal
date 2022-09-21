@@ -1,12 +1,12 @@
 ---
-date: '2022-09-11'
+date: '2022-09-21'
 title: 'Design pattern'
 subTitle: 'Design Pattern'
 parent: 'Study'
 slug: '/study/design-pattern'
 ---
 
-본 글은 전반적으로 [refactoring.guru](https://refactoring.guru/)와 [Design Patterns In Typescript](https://sbcode.net/typescript/)의 내용을 참고, 번역했습니다.
+본 글은 [refactoring.guru](https://refactoring.guru/)와 [Design Patterns In Typescript](https://sbcode.net/typescript/)의 내용을 참고, 번역했습니다.
 
 ## 📌 Facade Pattern
 

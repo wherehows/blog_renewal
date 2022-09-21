@@ -1,14 +1,14 @@
-const path = require("path");
+const path = require('path')
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
-        "@components": path.resolve(__dirname, "./src/components")
-      }
-    }
-  });
-};
+        '@components': path.resolve(__dirname, './src/components'),
+      },
+    },
+  })
+}
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
@@ -21,7 +21,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       ) {
         edges {
           node {
+            html
+            id
             frontmatter {
+              date
+              title
+              subTitle
+              parent
               slug
             }
           }
@@ -42,8 +48,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       path: node.frontmatter.slug,
       component: blogPostTemplate,
       context: {
-        allMarkdownRemark: result.data.allMarkdownRemark
-      }
+        allMarkdownRemark: result.data.allMarkdownRemark,
+      },
     })
   })
 }
+

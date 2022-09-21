@@ -16,7 +16,7 @@ module.exports = {
       options: {
         isTSX: true,
         allExtensions: true,
-      }
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
@@ -30,17 +30,23 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: `gatsby-remark-vscode`,
+            options: {
+              theme: 'Default Dark+',
+            },
+          },
+          {
             resolve: 'gatsby-remark-smartypants',
             options: {
               dashes: 'oldschool',
             },
           },
-          {
-            resolve: 'gatsby-remark-prismjs',
-            options: {
-              classPrefix: 'language-',
-            },
-          },
+          // {
+          //   resolve: 'gatsby-remark-prismjs',
+          //   options: {
+          //     classPrefix: 'language-',
+          //   },
+          // },
           {
             resolve: 'gatsby-remark-images',
             options: {
@@ -65,3 +71,4 @@ module.exports = {
     },
   ],
 }
+

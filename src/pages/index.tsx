@@ -40,7 +40,7 @@ const IndexPage = ({
         refactoredDatas={refactoredDatas}
         onClickCategoryItem={setSelectedContentId}
       />
-      <Content content={html} list={edges} />
+      <Content content={html} list={edges} refactoredDatas={refactoredDatas} />
     </GlobalCss>
   )
 }

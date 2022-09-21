@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { Link } from 'gatsby'
 
 interface CategoryItem {
   refactoredData: RefactoredData
@@ -23,12 +24,12 @@ const CategoryItem = ({
             <FolderName>{parent}</FolderName>
           </ListWrapper>
           <ParentWrapper>
-            {children.map(({ subTitle, id }) => {
+            {children.map(({ subTitle, id, slug }) => {
               return (
                 <ChildListWrapper key={id}>
-                  <Button onClick={() => onClickCategoryItem(id)}>
+                  <LinkButton onClick={() => onClickCategoryItem(id)} to={slug}>
                     {subTitle}
-                  </Button>
+                  </LinkButton>
                 </ChildListWrapper>
               )
             })}
@@ -69,25 +70,30 @@ const Button = styled('button')(() => ({
   padding: '0',
 }))
 
+const LinkButton = styled(Link)(() => ({
+  fontFamily: 'inherit',
+  backgroundColor: 'transparent',
+  border: 'none',
+  cursor: 'pointer',
+  fontSize: '1rem',
+  padding: '0',
+  color: 'black',
+
+  textDecoration: 'none',
+  outline: 'none',
+  '&:hover': {
+    textDecoration: 'none',
+    color: 'black',
+  },
+  '&:active': {
+    textDecoration: 'none',
+    color: 'black',
+  },
+}))
+
 const ChildListWrapper = styled('li')(() => ({
   listStyleType: 'none',
   padding: '0',
   margin: '0 0 0 1.8rem',
 }))
-
-// const StyledLink = styled(Link)(() => ({
-//   color: 'black',
-//   textDecoration: 'none',
-//   outline: 'none',
-//   '&:hover': {
-//     textDecoration: 'none',
-//     color: '#fff',
-//     backgroundColor: '#f59000',
-//   },
-//   '&:active': {
-//     textDecoration: 'none',
-//     color: '#fff',
-//     backgroundColor: '#f59000',
-//   },
-// }))
 

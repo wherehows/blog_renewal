@@ -46,13 +46,13 @@ target 옵션에 ‘es5’를 설정한다는 것은 다음 두가지 의미를 
 
 첫번째로, 타입스크립트 코드에 es5에서 지원되지 않는 자바스크립트 문법이 존재한다면, 컴파일시 이를 es5의 자바스크립트 문법으로 트랜스파일링 한다는 것입니다. 가령, 다음과 같은 화살표 함수는
 
-```javascript
+```typescript
 const add = (a: number, b: number) => a + b
 ```
 
 컴파일시 다음과 같이 트랜스파일 됩니다.
 
-```javascript
+```typescript
 var add = function (a, b) {
   return a + b
 }
@@ -62,13 +62,13 @@ var add = function (a, b) {
 
 아래 코드에 대해서는
 
-```javascript
+```typescript
 return Promise.resolve(value)
 ```
 
 다음과 같은 에러를 발생합니다.
 
-```javascript
+```typescript
 // 'Promise' only refers to a type, but is being used as a value here. Do you need to change your target library? Try changing the 'lib' compiler option to es2015 or later.
 ```
 
@@ -86,7 +86,7 @@ downlevelIteration에 대해서 알아보기 전에 알아야 할 내용은 전�
 
 tsconfig를 다음과 같이 설정해 놓았습니다.
 
-```javascript
+```typescript
 {
 	compilerOptions: {
 		target: 'es5',
@@ -96,7 +96,7 @@ tsconfig를 다음과 같이 설정해 놓았습니다.
 
 그리고 index.ts파일에 다음과 같이 es6 문법인 for... of 문으로 배열을 순회하여 로깅하는 코드가 존재합니다.
 
-```javascript
+```typescript
 const numbers = [4, 8, 15, 16, 23, 42]
 
 for (const number of numbers) {
@@ -106,7 +106,7 @@ for (const number of numbers) {
 
 이 코드를 컴파일 없이 바로 실행했을 때 다음과 같이 출력되는 것을 확인할 수 있습니다.
 
-```javascript
+```typescript
 $ node index.ts
 
 4
@@ -119,13 +119,13 @@ $ node index.ts
 
 그러면 이제 index.ts를 index.js로 컴파일해봅니다.
 
-```javascript
+```typescript
 $ tsc -p .
 ```
 
 만들어진 자바스크립트 코드를 보면, for...of 문이 index 기반의 for 문으로 바뀐 것을 확인할 수 있습니다.
 
-```javascript
+```typescript
 var numbers = [4, 8, 15, 16, 23, 42]
 for (var _i = 0, numbers_1 = numbers; _i < numbers_1.length; _i++) {
   var number = numbers_1[_i]
@@ -135,7 +135,7 @@ for (var _i = 0, numbers_1 = numbers; _i < numbers_1.length; _i++) {
 
 이 코드를 실행하면 아래와 같이 잘 동작하는 것을 확인할 수 있습니다.
 
-```javascript
+```typescript
 $ node index.js
 
 4
@@ -154,7 +154,7 @@ node index.ts나 node index.js나 실행 결과가 동일합니다. 이는 타�
 
 이번에는 배열이 아닌 문자열을 순회해봅시다.
 
-```javascript
+```typescript
 const text = 'Booh! 👻'
 
 for (const char of text) {
@@ -164,7 +164,7 @@ for (const char of text) {
 
 컴파일 없이 바로 코드를 실행해보면 아래와 같은 결과가 나오는 것을 알수 있습니다.
 
-```javascript
+```typescript
 $ node index.ts
 
 B
@@ -178,7 +178,7 @@ h
 
 이제 index.ts를 index.js로 컴파일하면 아래와 같이 코드가 만들어지는 것을 알수 있습니다.
 
-```javascript
+```typescript
 var text = 'Booh! 👻'
 for (var _i = 0, text_1 = text; _i < text_1.length; _i++) {
   var char = text_1[_i]
@@ -188,7 +188,7 @@ for (var _i = 0, text_1 = text; _i < text_1.length; _i++) {
 
 하지만 이를 실행했을 때 코드 동작은 전혀 달라집니다.
 
-```javascript
+```typescript
 $ node index.js
 
 B
@@ -205,7 +205,7 @@ h
 
 index.ts와 index.js의 동작이 다른 이유는, 문자열 이터레이션 프로토콜의 경우, code point를 순회하지만, for 문은 ghost 이모지를 code unit으로 쪼개어 순회하기 때문입니다. 이는 단순히 문자열 length 프로퍼티에 접근하는 것과 문자열 스프레딩 결과물에 의해 생성된 값을 담은 배열의 length 프로퍼티에 접근한 결과를 보면 납득할 수 있습니다.
 
-```javascript
+```typescript
 const ghostEmoji = '\u{1F47B}'
 
 console.log(ghostEmoji.length) // 2
@@ -220,7 +220,7 @@ console.log([...ghostEmoji].length) // 1
 
 이번에는 tsconfig의 compilerOptions에 downlevelIteration을 추가하여, 앞선 index.ts를 index.js로 다시 컴파일 해봅시다.
 
-```javascript
+```typescript
 var __values =
   (this && this.__values) ||
   function (o) {
@@ -264,7 +264,7 @@ var e_1, _a
 
 이 코드를 실행하게 되면 코드가 정상적으로 동작하는 것을 알수 있습니다.
 
-```javascript
+```typescript
 $ node index.js
 
 B
@@ -282,7 +282,7 @@ h
 
 ES6에서 Map과 Set의 새로운 컬렉션이 추가되었습니다. 여기서는 for of 문법으로 어떻게 Map을 순회하는지 보려고 합니다.
 
-```javascript
+```typescript
 const digits = new Map([
   [0, 'zero'],
   [1, 'one'],
@@ -303,7 +303,7 @@ for (const [digit, name] of digits) {
 
 위 코드는 아래와 같이 정상적으로 작동합니다.
 
-```javascript
+```typescript
 $ node index.ts
 
 0 -> zero
@@ -324,7 +324,7 @@ $ node index.ts
 
 결과적으로 tsconfig.json은 아래와 같이 설정됩니다.
 
-```javascript
+```typescript
 {
   "compilerOptions": {
     "target": "es5",
@@ -341,7 +341,7 @@ $ node index.ts
 
 컴파일을 하면 다음과 같은 코드가 만들어집니다.
 
-```javascript
+```typescript
 var __values =
   (this && this.__values) ||
   function (o) {
@@ -427,7 +427,7 @@ var e_1, _b
 
 우선 테스트할 코드를 다음과 같이 작성해줍니다.
 
-```javascript
+```typescript
 const digits = new Map([
   [0, 'zero'],
   [1, 'one'],
@@ -450,7 +450,7 @@ export function printDigits() {
 
 컴파일러 옵션을 다음과 같이 수정해줍니다.
 
-```javascript
+```typescript
 {
   "compilerOptions": {
     "target": "es5",
@@ -468,7 +468,7 @@ export function printDigits() {
 
 컴파일을 했을 때 결과물은 다음과 같이 만들어집니다.
 
-```javascript
+```typescript
 'use strict'
 Object.defineProperty(exports, '__esModule', { value: true })
 var tslib_1 = require('tslib')
