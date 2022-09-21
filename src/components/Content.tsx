@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
@@ -14,6 +14,8 @@ const Content = ({ content, refactoredDatas }: ContentProps) => {
     return +new Date(b.date) - +new Date(a.date)
   })
 
+  if (typeof document === 'undefined') return <></>
+
   return (
     <Wrapper>
       {content ? (
@@ -21,7 +23,7 @@ const Content = ({ content, refactoredDatas }: ContentProps) => {
       ) : (
         <DummyWrapper>
           {sorted.map(({ html, title, date, slug }: any) => (
-            <ItemWrapper>
+            <ItemWrapper key={slug}>
               <Button to={slug}>
                 <Title>{title}</Title>
                 <PostDate>{changeDateForm(date)}</PostDate>

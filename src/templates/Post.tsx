@@ -24,7 +24,7 @@ export default function Post({
     }) as Edge
     const { html: realHtml } = node
     setHtml(realHtml)
-  }, [path])
+  }, [])
 
   return (
     <GlobalCss>
