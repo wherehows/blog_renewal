@@ -22,11 +22,9 @@ export default function Post({
       const { slug } = node.frontmatter
       if (slug === path) return true
     }) as Edge
-    console.log('할당여부')
     const { html: realHtml } = node
     setHtml(realHtml)
   }, [path])
-  console.log('시작', '💇🏼', html)
 
   return (
     <GlobalCss>
