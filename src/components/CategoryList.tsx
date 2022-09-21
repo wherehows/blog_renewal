@@ -7,8 +7,6 @@ interface CategoryProps {
   onClickCategoryItem: (id: string) => void
 }
 
-const a = [1, 2, 3] as const
-
 const CategoryList = ({
   refactoredDatas,
   onClickCategoryItem,

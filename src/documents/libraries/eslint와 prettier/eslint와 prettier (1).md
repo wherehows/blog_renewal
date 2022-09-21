@@ -133,13 +133,13 @@ ESLint는 하지 못하는 max-len 수정이 가능해지는 것이죠. 하지�
 
 ESLint와 Prettier에는 아래와 같이 충돌하는 부분이 존재합니다.
 
-![](conflict.png)
+![](conflict1.png)
 
 우리는 이 충돌을 막아야 합니다. 그렇지 않으면 저장할 때마다 [issue](https://github.com/Microsoft/vscode-eslint/issues/541)에 올라온 무한 르프에 빠지게 됩니다.
 
 반적으로, Prettier는 코드 형식 규칙만을, ESlint는 코드 품질 규칙만을 다루게 환경을 구성합니다. 물론 겹치는 것 중에 어느 한쪽으로 분류하기 애매한 것들도 존재하지만, 너무 세세한 것 까지는 고려하지 않아도 괜찮습니다. 우리의 관심사는 오직 Prettier와 ESLint가 충돌 없이 하나의 규칙만 다루는 것 입니다! 아래 그림과 같이 말이죠!
 
-![](conflict-resolve.png)
+![](conflictresolve.png)
 
 ---
 
@@ -306,13 +306,13 @@ const obj = {
 
 ## 📚 참고문헌
 
-[린트(ESLint)와 프리티어(Prettier)로 협업 환경 세팅하기](https://www.youtube.com/watch?v=Y3kjHM7d3Zo%5CWhy)
+**[린트(ESLint)와 프리티어(Prettier)로 협업 환경 세팅하기](https://www.youtube.com/watch?v=Y3kjHM7d3Zo%5CWhy)**
 
-[Why You Should Use ESLint, Prettier & EditorConfig](https://blog.theodo.com/2019/08/why-you-should-use-eslint-prettier-and-editorconfig-together/)
+**[Why You Should Use ESLint, Prettier & EditorConfig](https://blog.theodo.com/2019/08/why-you-should-use-eslint-prettier-and-editorconfig-together/)**
 
-[What Is a Linter? Here’s a Definition and Quick-Start Guide](https://www.testim.io/blog/what-is-a-linter-heres-a-definition-and-quick-start-guide/)
+**[What Is a Linter? Here’s a Definition and Quick-Start Guide](https://www.testim.io/blog/what-is-a-linter-heres-a-definition-and-quick-start-guide/)**
 
-[Set up ESlint, Prettier & EditorConfig without conflicts](https://blog.theodo.com/2019/08/empower-your-dev-environment-with-eslint-prettier-and-editorconfig-with-no-conflicts/)
+**[Set up ESlint, Prettier & EditorConfig without conflicts](https://blog.theodo.com/2019/08/empower-your-dev-environment-with-eslint-prettier-and-editorconfig-with-no-conflicts/)**
 
-[It this the correct way of extending eslint rules?](https://stackoverflow.com/questions/46544082/it-this-the-correct-way-of-extending-eslint-rules)
+**[It this the correct way of extending eslint rules?](https://stackoverflow.com/questions/46544082/it-this-the-correct-way-of-extending-eslint-rules)**
 

@@ -2,8 +2,8 @@
 date: '2022-09-03'
 title: 'React 상태 관리 라이브러리 (1)'
 subTitle: 'React 상태 관리 라이브러리 (1)'
-parent: 'Translate'
-slug: '/translate/react-state-management-1'
+parent: 'Study'
+slug: '/study/react-state-management-1'
 ---
 
 본 글은 [React State Management Libraries and How to Choose](https://daveceddia.com/react-state-management/)의 일부를 번역해놓은 글 입니다.
@@ -66,11 +66,11 @@ state setter의 경우, useState, useReducer, this.setState 이거나 redux, mob
 
 이름에서 느껴지듯, 데이터가 한쪽 방향으로밖에 못 흐른다면 단방향 데이터 바인딩 이라고 하고, 이 경우 데이터가 변해야만 UI가 변합니다.
 
-![](one-way.png)
+![](oneway.png)
 
 데이터가 양쪽 방향으로 모두 흐를 수 있다면 양방향 데이터 바인딩이라고 하고, 단방향 데이터 바인딩과는 다르게 UI가 변해도 내부 데이터가 변할 수 있습니다.
 
-![](two-way.png)
+![](twoway.png)
 
 ---
 

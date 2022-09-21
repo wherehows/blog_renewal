@@ -2,8 +2,8 @@
 date: '2022-09-11'
 title: 'tsconfig --downlevelIteration'
 subTitle: 'downlevelIteration'
-parent: 'Translate'
-slug: '/translate/downlevel-iteration'
+parent: 'Study'
+slug: '/study/downlevel-iteration'
 ---
 
 본 글은 [Downlevel Iteration for ES3/ES5 in TypeScript](https://mariusschulz.com/blog/downlevel-iteration-for-es3-es5-in-typescript)의 일부를 번역해놓은 글 입니다.

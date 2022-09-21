@@ -9,28 +9,11 @@ interface ContentProps {
 const Content = ({ content, list }: ContentProps) => {
   return (
     <Wrapper>
-      {
-        content ? (
-          <MarkdownRenderer dangerouslySetInnerHTML={{ __html: content }} />
-        ) : (
-          <></>
-        )
-        // <UList>
-        // {list.map(({ node }: Edge) => {
-        //   const { title, date } = node.frontmatter
-
-        //   return (
-        //     <ItemWrapper key={node.id}>
-        //       <Title>{title}</Title>
-        //       <PostDate>{date.toString()}</PostDate>
-        //       <Description>12345</Description>
-        //       <Label>12345</Label>
-        //     </ItemWrapper>
-        //     )
-        //     })
-        //     }
-        // </UList>
-      }
+      {content ? (
+        <MarkdownRenderer dangerouslySetInnerHTML={{ __html: content }} />
+      ) : (
+        <></>
+      )}
     </Wrapper>
   )
 }
@@ -38,31 +21,25 @@ const Content = ({ content, list }: ContentProps) => {
 export default Content
 
 const Wrapper = styled('div')(() => ({
-  width: '43rem',
+  width: '46rem',
   height: '100%',
-  margin: '0 0 0 calc(18% + 17rem + 2rem)',
+  margin: '0 0 0 calc(25% + 17rem + 4rem)',
+  '@media screen and (max-width: 1484px)': {
+    margin: '0 0 0 calc(7% + 17rem + 4rem)',
+  },
 }))
 
 const MarkdownRenderer = styled('div')(() => ({
+  width: '100%',
   a: {
     color: '#3347ff',
     textDecoration: 'none',
+    fontWeight: 'bold',
   },
 
   'a:visited': {
     color: '#3347ff',
+    fontWieght: 'bold',
   },
 }))
-
-const UList = styled.ul``
-
-const ItemWrapper = styled.li``
-
-const Title = styled.div``
-
-const PostDate = styled.div``
-
-const Description = styled.div``
-
-const Label = styled.div``
 

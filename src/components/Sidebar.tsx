@@ -22,11 +22,17 @@ export default Sidebar
 
 const Wrapper = styled('div')(() => ({
   width: '17rem',
-  padding: '0 1rem 0 18%',
+  padding: '0 1rem 0 25%',
   height: '100vh',
   backgroundColor: '#fff5e6',
   position: 'fixed',
+  left: 0,
+  top: 0,
   zIndex: 1,
   color: '#ba7f4a',
+
+  '@media screen and (max-width: 1484px)': {
+    padding: '0 1rem 0 7%',
+  },
 }))
 

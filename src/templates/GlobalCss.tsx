@@ -11,7 +11,5 @@ const GlobalCss = ({ children }: ExampleProps) => {
 
 export default GlobalCss
 
-const Wrapper = styled('div')(() => ({
-  display: 'flex',
-}))
+const Wrapper = styled('div')(() => ({}))
 
