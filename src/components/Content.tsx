@@ -104,7 +104,7 @@ const Description = styled('div')(() => ({
   fontSize: '0.9rem',
   textAlign: 'left',
   width: '100%',
-  height: '4.1rem',
+  height: '4.3rem',
   textOverflow: 'ellipsis',
   overflow: 'hidden',
 }))
