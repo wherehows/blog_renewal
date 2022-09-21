@@ -128,7 +128,7 @@ const extractContent = (s: any) => {
   return span.textContent || span.innerText
 }
 
-const changeDateForm = s => {
+const changeDateForm = (s: any) => {
   const sArray = s.split('-')
   return `${sArray[0].slice(2, 4)}년 ${sArray[1]}월 ${sArray[2]}일`
 }
