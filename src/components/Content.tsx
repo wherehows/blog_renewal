@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
@@ -101,12 +101,27 @@ const PostDate = styled('div')(() => ({
 }))
 
 const Description = styled('div')(() => ({
-  fontSize: '0.9rem',
-  textAlign: 'left',
+  // fontSize: '0.9rem',
+  // textAlign: 'left',
+  // width: '100%',
+  // height: '4.1rem',
+  // textOverflow: 'ellipsis',
+  // overflow: 'hidden',
+
+  /* 한 줄 자르기 */
+  display: 'inline-block',
   width: '100%',
-  height: '4.3rem',
-  textOverflow: 'ellipsis',
   overflow: 'hidden',
+  textOverflow: 'ellipsis',
+
+  /* 여러 줄 자르기 추가 스타일 */
+  whiteSpace: 'normal',
+  lineHeight: 1.2,
+  height: '3.65rem',
+  textAlign: 'left',
+  wordWrap: 'break-word',
+  '-webkit-line-clamp': 3,
+  '-webkit-box-orient': 'vertical',
 }))
 
 const DummyWrapper = styled('ul')(() => ({
