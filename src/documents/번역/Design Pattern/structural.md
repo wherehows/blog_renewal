@@ -1,7 +1,7 @@
 ---
 date: '2022-09-21'
-title: 'Design pattern - structural'
-subTitle: 'Design pattern - structural'
+title: 'Design Pattern - structural'
+subTitle: 'Design Pattern - structural'
 parent: 'Study'
 slug: '/study/design-pattern'
 ---
