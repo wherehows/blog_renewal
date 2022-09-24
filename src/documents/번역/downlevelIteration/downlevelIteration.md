@@ -1,7 +1,7 @@
 ---
 date: '2022-09-11'
 title: 'tsconfig --downlevelIteration'
-subTitle: 'downlevelIteration'
+subTitle: 'DownlevelIteration'
 parent: 'Study'
 slug: '/study/downlevel-iteration'
 ---
