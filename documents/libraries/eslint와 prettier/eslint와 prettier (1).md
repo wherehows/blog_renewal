@@ -1,10 +1,10 @@
 ---
 date: '2022-08-29'
 title: 'eslint와 prettier'
-subTitle: 'ESLint와 Prettier'
-parent: 'Libraries'
+subTitle: 'ESLint와 Prettier (1)'
+parent: 'Study'
 description: 'eslint의 설정 옵션들과 format on save 설정 방법을 다룹니다'
-slug: '/libraries/2022-08-29'
+slug: '/study/lint-prettier-1'
 ---
 
 ## 📌 ESLint란?

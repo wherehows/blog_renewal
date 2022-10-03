@@ -5,7 +5,6 @@ interface IndexPageProps {
     }
   }
 }
-
 interface Edge {
   node: {
     frontmatter: {
@@ -35,3 +34,4 @@ interface ChildDocument {
   html: string
   id: string
 }
+

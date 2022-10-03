@@ -61,15 +61,6 @@ const FolderName = styled('div')(() => ({
   fontWeight: 'bold',
 }))
 
-const Button = styled('button')(() => ({
-  fontFamily: 'inherit',
-  backgroundColor: 'transparent',
-  border: 'none',
-  cursor: 'pointer',
-  fontSize: '1rem',
-  padding: '0',
-}))
-
 const LinkButton = styled(Link)(() => ({
   fontFamily: 'inherit',
   backgroundColor: 'transparent',
