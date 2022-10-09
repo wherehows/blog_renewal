@@ -8,7 +8,7 @@ slug: '/study/downlevel-iteration'
 
 본 글은 [Downlevel Iteration for ES3/ES5 in TypeScript](https://mariusschulz.com/blog/downlevel-iteration-for-es3-es5-in-typescript)의 일부를 번역해놓은 글 입니다.
 
-TypeScript 2.3에 es3와 es5 타겟으로 할 때, es6의 이터레이션 프로토콜 지원을 위한 downlevelIteration 플래그가 도입되었습니다.
+TypeScript 2.3 버전에는 tsconfig의 target이 es3와 es5일때, es6의 이터레이션 프로토콜 지원을 위한 downlevelIteration 플래그가 도입되었습니다.
 
 본 내용에 들어가기에 앞서서 tsconfig.json compilerOptions의 target과 lib 옵션에 대해서 먼저 알아야 합니다.
 
@@ -16,13 +16,13 @@ TypeScript 2.3에 es3와 es5 타겟으로 할 때, es6의 이터레이션 프로
 
 ## 📌 compilerOptions --- target
 
-모던 브라우저의 경우 es6 문법을 대부분 지원하지만, 더 옛날 환경에서의 동작이나, 더 최신 환경에서의 동작을 보장해야 할때도 있습니다. target에 ES 버전을 설정함으로써 타입스크립트 코드를 해당 버전의 자바스크립트 코드로 트랜스파일 가능합니다. 예를들면 es6 문법 중 하나인 화살표 함수를 function 키워드를 사용한 es5 이하의 문법으로 변환할 수 있습니다. 참고로 traget의 기본값은 es3입니다.
+모던 브라우저의 경우 es6 문법을 대부분 지원하지만, 더 옛날 환경에서의 동작이나, 더 최신 환경에서의 동작을 보장해야 할때도 있습니다. target에 ES 버전을 설정함으로써 타입스크립트 코드를 해당 버전의 자바스크립트 코드로 트랜스파일 가능합니다. 예를들면 es6 문법 중 하나인 화살표 함수를 function 키워드를 사용한 es5 이하의 문법으로 변환할 수 있습니다. 참고로 target의 기본값은 es3입니다.
 
-target을 바꾸면 lib의 기본값이 바뀝니다. target을 es5로 설정하면 lib에는 ‘dom’과 ‘es5’가 기본으로 설정됩니다. target과 lib을 동시에 설정함으로서 디테일한 설정이 가능하지만, 편의상 target만 설정해도 좋습니다.
+target을 바꾸면 다음에 설명할 lib 설정의 기본값이 바뀝니다. target을 es5로 설정하면 lib에는 ‘dom’과 ‘es5’가 기본으로 설정됩니다. target과 lib을 동시에 설정함으로서 디테일한 설정이 가능하지만, 편의상 target만 설정해도 좋습니다.
 
 node 개발자의 경우, [관련된 커뮤니티](https://github.com/tsconfig/bases#centralized-recommendations-for-tsconfig-bases)에서 특정 플랫폼과 버전에 따른 tsconfig 설정을 미리 만들어 놓았습니다.
 
-target의 설정값중 하나인 ESNext의 경우, 현재 설치된 타입스크립트 버전에서 지원할 수 있는 가장 최신 버전의 ES를 의미합니다. 이 설정은 타입스크립트 버전마다 동일한 결과물을 만들지 않기때문에 주의해야 합니다.
+target의 설정값중 하나인 ESNext의 경우, 현재 설치된 타입스크립트 버전에서 지원할 수 있는 가장 최신 버전의 ES를 의미합니다. 이 설정은 타입스크립트 버전에 의존하기 때문에 유의해야 합니다.
 
 ---
 
@@ -40,7 +40,7 @@ target의 설정값중 하나인 ESNext의 경우, 현재 설치된 타입스크
 
 ## 📌 target과 lib의 차이점
 
-target과 lib에 대한 공식 문서 설명이 빈약한 것 같아, 이해도를 높이기 위해서 [TypeScript lib vs target: What’s the difference?](https://www.claritician.com/typescript-lib-vs-target-what-s-the-difference) 를 추가적으로 번역했습니다.
+target과 lib에 대한 공식 문서 설명이 빈약한 것 같아 [TypeScript lib vs target: What’s the difference?](https://www.claritician.com/typescript-lib-vs-target-what-s-the-difference) 를 추가적으로 번역했습니다.
 
 target 옵션에 ‘es5’를 설정한다는 것은 다음 두가지 의미를 갖습니다.
 
@@ -94,7 +94,7 @@ tsconfig를 다음과 같이 설정해 놓았습니다.
 }
 ```
 
-그리고 index.ts파일에 다음과 같이 es6 문법인 for... of 문으로 배열을 순회하여 로깅하는 코드가 존재합니다.
+그리고 index.ts파일에 다음과 같이 es6 문법인 for... of 문으로 배열을 순회하며 로깅하는 코드가 존재합니다.
 
 ```typescript
 const numbers = [4, 8, 15, 16, 23, 42]
@@ -201,7 +201,7 @@ h
 �
 ```
 
-유령 이모지의 code point 는 U+1F47B 입니다. 좀 더 정확히 말하면, U+D83D와 U+DC7B의 두개의 code unit으로 구성되어 있습니다. 문자열의 index에 접근하면 code point가 아닌 code unit을 return 받게 됩니다. (이 부분에 대한 내용은 별도 문서에서 다루겠습니다.)
+유령 이모지의 code point 는 U+1F47B 입니다. 좀 더 정확히 말하면, U+D83D와 U+DC7B의 두개의 code unit으로 구성되어 있습니다. 문자열의 특정 index에 접근하면 code point가 아닌 code unit을 return 받게 됩니다. (이 부분에 대한 내용은 별도 문서에서 다루겠습니다.)
 
 index.ts와 index.js의 동작이 다른 이유는, 문자열 이터레이션 프로토콜의 경우, code point를 순회하지만, for 문은 ghost 이모지를 code unit으로 쪼개어 순회하기 때문입니다. 이는 단순히 문자열 length 프로퍼티에 접근하는 것과 문자열 스프레딩 결과물에 의해 생성된 값을 담은 배열의 length 프로퍼티에 접근한 결과를 보면 납득할 수 있습니다.
 
