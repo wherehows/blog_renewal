@@ -117,7 +117,7 @@ const Description = styled('div')(() => ({
   /* 여러 줄 자르기 추가 스타일 */
   whiteSpace: 'normal',
   lineHeight: 1.2,
-  height: '3.65rem',
+  height: '3.6rem',
   textAlign: 'left',
   wordWrap: 'break-word',
   '-webkit-line-clamp': 3,
