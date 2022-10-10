@@ -1,9 +1,9 @@
 ---
-date: '2022-10-01'
+date: '2022-10-09'
 title: 'Jamstack'
 subTitle: 'Jamstack'
 parent: 'Study'
-slug: '/study/jam-stack'
+slug: '/study/jamstack'
 ---
 
 본 글은 [What is Jamstack](https://umbraco.com/knowledge-base/jamstack/)의 내용을 참고, 번역했습니다.
