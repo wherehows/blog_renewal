@@ -11,7 +11,8 @@ interface Edge {
       date: Date
       title: string
       subTitle: string
-      parent: string | undefined
+      grandParent: string
+      parent: string
       slug: string
       index: number
     }
@@ -21,17 +22,45 @@ interface Edge {
 }
 
 interface RefactoredData {
-  parent: string | null
-  children: ChildDocument[]
+  parent: string | undefined
+  children: MarkdownDocument[]
 }
 
-interface ChildDocument {
+interface MarkdownDocument {
   date: Date
+  grandParent: string
+  parent: string
   title: string
   subTitle: string
   index: number
   slug: string
   html: string
   id: string
+}
+
+interface IndexPageProps {
+  data: {
+    allMarkdownRemark: {
+      edges: Edge[]
+    }
+  }
+}
+
+interface GrandParentData {
+  [key: string]: {
+    grandParent: string | undefined
+    parent: string | undefined
+    children: (MarkdownDocument | MarkDownDocumentNode)[]
+  }
+}
+
+interface ParentData {
+  [key: string]: MarkDownDocumentNode
+}
+
+interface MarkDownDocumentNode {
+  grandParent: string | undefined
+  parent: string | undefined
+  children: MarkdownDocument[]
 }
 

@@ -3,35 +3,31 @@ import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
 interface ContentProps {
-  content: string | null
-  list: Edge[]
-  refactoredDatas: any
+  documents?: MarkdownDocument[]
+  selectedDocument?: string | null
 }
 
-const Content = ({ content, refactoredDatas }: ContentProps) => {
-  const listData = getRefactoredData(refactoredDatas)
-  const sorted = listData.sort((a: any, b: any) => {
-    return +new Date(b.date) - +new Date(a.date)
-  })
-
+const Content = ({ documents, selectedDocument }: ContentProps) => {
   if (typeof document === 'undefined') return <></>
 
   return (
     <Wrapper>
-      {content ? (
-        <MarkdownRenderer dangerouslySetInnerHTML={{ __html: content }} />
+      {selectedDocument ? (
+        <MarkdownRenderer
+          dangerouslySetInnerHTML={{ __html: selectedDocument }}
+        />
       ) : (
-        <DummyWrapper>
-          {sorted.map(({ html, title, date, slug }: any) => (
-            <ItemWrapper key={slug}>
+        <DocumentList>
+          {documents?.map(({ html, title, date, slug }: any) => (
+            <DocumentItem key={slug}>
               <Button to={slug}>
                 <Title>{title}</Title>
-                <PostDate>{changeDateForm(date)}</PostDate>
-                <Description>{extractContent(html)}</Description>
+                <PostDate>{formDate(date)}</PostDate>
+                <Description>{markdownToTextContent(html)}</Description>
               </Button>
-            </ItemWrapper>
+            </DocumentItem>
           ))}
-        </DummyWrapper>
+        </DocumentList>
       )}
     </Wrapper>
   )
@@ -40,15 +36,13 @@ const Content = ({ content, refactoredDatas }: ContentProps) => {
 export default Content
 
 const Wrapper = styled('div')(() => ({
+  diplay: 'flex',
+  marginLeft: 'calc((100% - 70rem) /2 + 21rem)',
   width: '46rem',
   height: '100%',
-  margin: '0 0 0 calc(25% + 17rem + 4rem)',
-  '@media screen and (max-width: 1484px)': {
-    margin: '0 0 0 calc(7% + 17rem + 4rem)',
-  },
 }))
 
-const ItemWrapper = styled('li')(() => ({
+const DocumentItem = styled('li')(() => ({
   listStyleType: 'none',
   marginBottom: '2rem',
 }))
@@ -101,20 +95,10 @@ const PostDate = styled('div')(() => ({
 }))
 
 const Description = styled('div')(() => ({
-  // fontSize: '0.9rem',
-  // textAlign: 'left',
-  // width: '100%',
-  // height: '4.1rem',
-  // textOverflow: 'ellipsis',
-  // overflow: 'hidden',
-
-  /* 한 줄 자르기 */
   display: 'inline-block',
   width: '100%',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
-
-  /* 여러 줄 자르기 추가 스타일 */
   whiteSpace: 'normal',
   lineHeight: 1.2,
   height: '3.6rem',
@@ -124,28 +108,18 @@ const Description = styled('div')(() => ({
   '-webkit-box-orient': 'vertical',
 }))
 
-const DummyWrapper = styled('ul')(() => ({
+const DocumentList = styled('ul')(() => ({
   padding: 0,
   marginTop: '1rem',
 }))
 
-const getRefactoredData = (data: any) =>
-  data.reduce((res: any, { children, parent }: any) => {
-    children.forEach((item: any) => {
-      item['parent'] = parent
-      res.push(item)
-    })
-
-    return res
-  }, [])
-
-const extractContent = (s: any) => {
-  var span = document.createElement('span')
-  span.innerHTML = s
-  return span.textContent || span.innerText
+const markdownToTextContent = (s: any) => {
+  var dummyTag = document.createElement('span')
+  dummyTag.innerHTML = s
+  return dummyTag.textContent || dummyTag.innerText
 }
 
-const changeDateForm = (s: any) => {
+const formDate = (s: any) => {
   const sArray = s.split('-')
   return `${sArray[0].slice(2, 4)}년 ${sArray[1]}월 ${sArray[2]}일`
 }

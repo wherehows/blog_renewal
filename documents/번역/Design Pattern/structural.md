@@ -2,7 +2,8 @@
 date: '2022-09-21'
 title: 'Design Pattern - structural'
 subTitle: 'Design Pattern - structural'
-parent: 'Study'
+grandParent: 'Study'
+parent: 'Design Pattern'
 slug: '/study/design-pattern'
 ---
 
@@ -74,7 +75,7 @@ class Facade {
 
 // 하위 시스템을 다이렉트로 사용하는 경우
 console.log(
-     new SubSystemClassA().method() +
+  new SubSystemClassA().method() +
     new SubSystemClassB().method(2) +
     new SubSystemClassC().method(3),
 ) // 8

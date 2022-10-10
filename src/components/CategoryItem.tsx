@@ -3,39 +3,28 @@ import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 
 interface CategoryItem {
-  refactoredData: RefactoredData
-  onClickCategoryItem: (id: string) => void
+  folder: GrandParentData[keyof GrandParentData]
 }
 
-const CategoryItem = ({
-  refactoredData,
-  onClickCategoryItem,
-}: CategoryItem) => {
-  const { parent, children } = refactoredData
+const CategoryItem = ({ folder }: CategoryItem) => {
+  const { parent, children } = folder
+
   return (
     <>
-      {!parent ? (
-        children.map(({ subTitle }: ChildDocument) => {
-          return <ListWrapper>{subTitle}</ListWrapper>
-        })
-      ) : (
-        <>
-          <ListWrapper>
-            <FolderName>{parent}</FolderName>
-          </ListWrapper>
-          <ParentWrapper>
-            {children.map(({ subTitle, id, slug }) => {
-              return (
-                <ChildListWrapper key={id}>
-                  <LinkButton onClick={() => onClickCategoryItem(id)} to={slug}>
-                    {subTitle}
-                  </LinkButton>
-                </ChildListWrapper>
-              )
-            })}
-          </ParentWrapper>
-        </>
-      )}
+      <ListWrapper>
+        <FolderName>{parent}</FolderName>
+        <ParentWrapper>
+          {children.map((child, index) => (
+            <ChildListWrapper key={index}>
+              {'children' in child ? (
+                <CategoryItem folder={child} />
+              ) : (
+                <LinkButton to={child.slug}>{child.subTitle}</LinkButton>
+              )}
+            </ChildListWrapper>
+          ))}
+        </ParentWrapper>
+      </ListWrapper>
     </>
   )
 }
@@ -50,7 +39,7 @@ const ListWrapper = styled('li')(() => ({
 
 const ParentWrapper = styled('ul')(() => ({
   padding: 0,
-  margin: '0.14rem 0 1.1rem 0',
+  margin: '0.14rem 0 0 0',
 }))
 
 const FolderName = styled('div')(() => ({
@@ -69,16 +58,18 @@ const LinkButton = styled(Link)(() => ({
   fontSize: '1rem',
   padding: '0',
   color: 'black',
-
   textDecoration: 'none',
   outline: 'none',
+
   '&:hover': {
     textDecoration: 'none',
-    color: 'black',
+    color: 'dark',
+    fontWeight: 'bold',
   },
+
   '&:active': {
     textDecoration: 'none',
-    color: 'black',
+    color: 'dark',
   },
 }))
 

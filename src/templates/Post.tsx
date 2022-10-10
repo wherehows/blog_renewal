@@ -1,7 +1,6 @@
 import Content from '@components/Content'
 import Sidebar from '@components/Sidebar'
-import React, { useEffect, useState } from 'react'
-import GlobalCss from './GlobalCss'
+import React from 'react'
 
 export default function Post({
   pageContext: {
@@ -9,80 +8,93 @@ export default function Post({
   },
   path,
 }: any) {
-  const [selectedContentId, setSelectedContentId] = useState<string | null>(
-    null,
-  )
-
-  const [html, setHtml] = useState<null | string>(null)
-
-  const refactoredDatas = refactorData(edges)
-
-  useEffect(() => {
-    const { node } = edges.find(({ node }: any) => {
-      const { slug } = node.frontmatter
-      if (slug === path) return true
-    }) as Edge
-    const { html: realHtml } = node
-    setHtml(realHtml)
-  }, [])
+  const documentTree = getDocumentTree(edges)
+  const selectedDocument = getSelectedDocument(edges, path)
 
   return (
-    <GlobalCss>
-      <Sidebar
-        refactoredDatas={refactoredDatas}
-        onClickCategoryItem={setSelectedContentId}
-      />
-      <Content content={html} list={edges} refactoredDatas={refactoredDatas} />
-    </GlobalCss>
+    <>
+      <Sidebar documentTree={documentTree} />
+      <Content selectedDocument={selectedDocument} />
+    </>
   )
 }
 
-interface Result {
-  [key: string]: RefactoredData
+const getDocumentTree = (edges: Edge[]) => {
+  const grandParentData: GrandParentData = {}
+  const parentData: ParentData = {}
+
+  edges.forEach(({ node }: Edge) => {
+    const { frontmatter, html, id } = node
+    const { date, title, subTitle, grandParent, parent, slug, index } =
+      frontmatter
+    const childDocument = {
+      date,
+      grandParent,
+      parent,
+      title,
+      subTitle,
+      index,
+      slug,
+      html,
+      id,
+    }
+
+    if (!grandParent.length && parent && !(parent in grandParentData)) {
+      grandParentData[parent] = {
+        grandParent,
+        parent,
+        children: [childDocument],
+      }
+      return
+    }
+
+    if (!grandParent.length && parent && parent in grandParentData) {
+      grandParentData[parent].children.push(childDocument)
+      return
+    }
+
+    if (grandParent.length && parent && !(parent in parentData)) {
+      parentData[parent] = {
+        grandParent,
+        parent,
+        children: [childDocument],
+      }
+      return
+    }
+
+    if (grandParent.length && parent && parent in parentData) {
+      parentData[parent].children.push(childDocument)
+      return
+    }
+  })
+
+  for (const folder of Object.values(parentData)) {
+    const { grandParent } = folder
+
+    if (grandParent && grandParent in grandParentData) {
+      grandParentData[grandParent].children.push(folder)
+      continue
+    }
+
+    if (grandParent && !(grandParent in grandParentData)) {
+      grandParentData[grandParent] = {
+        grandParent: '',
+        parent: grandParent,
+        children: [folder],
+      }
+      continue
+    }
+  }
+
+  return Object.values(grandParentData).reverse()
 }
+const getSelectedDocument = (edges: Edge[], targetDocumentPath: string) => {
+  const edge = edges.find(({ node }: Edge) => {
+    if (node.frontmatter.slug === targetDocumentPath) {
+      return true
+    }
+  })
 
-const refactorData = (edges: Edge[]) =>
-  Object.values(
-    edges.reduce((res: Result, { node }: Edge) => {
-      const { frontmatter, html, id } = node
-      const { date, title, subTitle, parent, slug, index } = frontmatter
-      const childDocument = {
-        date,
-        title,
-        subTitle,
-        index,
-        slug,
-        html,
-        id,
-      }
-
-      if (parent && !(parent in res)) {
-        res[parent] = {
-          parent,
-          children: [childDocument],
-        }
-        return res
-      }
-
-      if (parent && parent in res) {
-        res[parent].children.push(childDocument)
-        return res
-      }
-
-      if (!parent && !('children' in res)) {
-        res.children = {
-          parent: null,
-          children: [childDocument],
-        }
-        return res
-      }
-
-      if (!parent && 'children' in res) {
-        res.children.children.push(childDocument)
-        return res
-      }
-
-      return res
-    }, {}),
-  )
+  return edge && edge.node.html
+}
 

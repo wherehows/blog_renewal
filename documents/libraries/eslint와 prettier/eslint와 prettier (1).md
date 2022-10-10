@@ -2,8 +2,8 @@
 date: '2022-08-29'
 title: 'eslint와 prettier'
 subTitle: 'ESLint와 Prettier (1)'
-parent: 'Study'
-description: 'eslint의 설정 옵션들과 format on save 설정 방법을 다룹니다'
+grandParent: 'Study'
+parent: 'ESLint and Prettier'
 slug: '/study/lint-prettier-1'
 ---
 
@@ -236,11 +236,11 @@ function foo(a, b, a) {
 // eslint no-extra-semi: 2 설정시
 // Error가 발생하는 경우
 
-var x = 5;; /*error Unnecessary semicolon.*/
+var x = 5 /*error Unnecessary semicolon.*/
 
 function foo() {
   // code
-}; /*error Unnecessary semicolon.*/
+} /*error Unnecessary semicolon.*/
 
 // Error가 발생하지 않는 경우
 
@@ -289,14 +289,14 @@ module.exports = {
 // 새로운 프로퍼티 추가 전
 const obj = {
   a: 1,
-  b: 2
+  b: 2,
 }
 
 // 새로운 프로퍼티 추가 후
 const obj = {
   a: 1,
   b: 2, // 변경된 Line 1
-  c: 3 // 변경된 Line 2
+  c: 3, // 변경된 Line 2
 }
 ```
 

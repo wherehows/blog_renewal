@@ -1,47 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
-import GlobalCss from '../templates/GlobalCss'
 import '../styles/global.css'
 import Sidebar from '@components/Sidebar'
 import Content from '@components/Content'
-
-interface IndexPageProps {
-  data: {
-    allMarkdownRemark: {
-      edges: Edge[]
-    }
-  }
-}
 
 const IndexPage = ({
   data: {
     allMarkdownRemark: { edges },
   },
 }: IndexPageProps) => {
-  const [selectedContentId, setSelectedContentId] = useState<string | null>(
-    null,
-  )
-
-  const refactoredDatas = refactorData(edges)
-  let html = null
-
-  if (selectedContentId) {
-    const { node } = edges.find(({ node }) => {
-      const { id } = node
-      if (id === selectedContentId) return true
-    }) as Edge
-    const { html: realHtml } = node
-    html = realHtml
-  }
+  const documentTree = getDocumentTree(edges)
+  const documents = getAllDocumentsWithSort(edges)
 
   return (
-    <GlobalCss>
-      <Sidebar
-        refactoredDatas={refactoredDatas}
-        onClickCategoryItem={setSelectedContentId}
-      />
-      <Content content={html} list={edges} refactoredDatas={refactoredDatas} />
-    </GlobalCss>
+    <>
+      <Sidebar documentTree={documentTree} />
+      <Content documents={documents} />
+    </>
   )
 }
 
@@ -58,6 +33,8 @@ export const getPostList = graphql`
           id
           frontmatter {
             date
+            grandParent
+            parent
             title
             subTitle
             parent
@@ -69,52 +46,96 @@ export const getPostList = graphql`
   }
 `
 
-interface Result {
-  [key: string]: RefactoredData
+const getDocumentTree = (edges: Edge[]) => {
+  const grandParentData: GrandParentData = {}
+  const parentData: ParentData = {}
+
+  edges.forEach(({ node }: Edge) => {
+    const { frontmatter, html, id } = node
+    const { date, title, subTitle, grandParent, parent, slug, index } =
+      frontmatter
+    const childDocument = {
+      date,
+      grandParent,
+      parent,
+      title,
+      subTitle,
+      index,
+      slug,
+      html,
+      id,
+    }
+
+    if (!grandParent.length && parent && !(parent in grandParentData)) {
+      grandParentData[parent] = {
+        grandParent,
+        parent,
+        children: [childDocument],
+      }
+      return
+    }
+
+    if (!grandParent.length && parent && parent in grandParentData) {
+      grandParentData[parent].children.push(childDocument)
+      return
+    }
+
+    if (grandParent.length && parent && !(parent in parentData)) {
+      parentData[parent] = {
+        grandParent,
+        parent,
+        children: [childDocument],
+      }
+      return
+    }
+
+    if (grandParent.length && parent && parent in parentData) {
+      parentData[parent].children.push(childDocument)
+      return
+    }
+  })
+
+  for (const folder of Object.values(parentData)) {
+    const { grandParent } = folder
+
+    if (grandParent && grandParent in grandParentData) {
+      grandParentData[grandParent].children.push(folder)
+      continue
+    }
+
+    if (grandParent && !(grandParent in grandParentData)) {
+      grandParentData[grandParent] = {
+        grandParent: '',
+        parent: grandParent,
+        children: [folder],
+      }
+      continue
+    }
+  }
+
+  return Object.values(grandParentData).reverse()
 }
 
-const refactorData = (edges: Edge[]) =>
-  Object.values(
-    edges.reduce((res: Result, { node }: Edge) => {
+const getAllDocumentsWithSort = (edges: Edge[]) =>
+  edges
+    .reduce((res: MarkdownDocument[], { node }: Edge) => {
       const { frontmatter, html, id } = node
-      const { date, title, subTitle, parent, slug, index } = frontmatter
-      const childDocument = {
+      const { date, title, subTitle, grandParent, parent, slug, index } =
+        frontmatter
+
+      res.push({
+        html,
+        id,
         date,
         title,
         subTitle,
-        index,
+        grandParent,
+        parent,
         slug,
-        html,
-        id,
-      }
-
-      if (parent && !(parent in res)) {
-        res[parent] = {
-          parent,
-          children: [childDocument],
-        }
-        return res
-      }
-
-      if (parent && parent in res) {
-        res[parent].children.push(childDocument)
-        return res
-      }
-
-      if (!parent && !('children' in res)) {
-        res.children = {
-          parent: null,
-          children: [childDocument],
-        }
-        return res
-      }
-
-      if (!parent && 'children' in res) {
-        res.children.children.push(childDocument)
-        return res
-      }
+        index,
+      })
 
       return res
-    }, {}),
-  )
+    }, [])
+    .sort((a, b) => +new Date(b.date) - +new Date(a.date))
 
