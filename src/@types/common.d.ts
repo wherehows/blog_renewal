@@ -21,11 +21,6 @@ interface Edge {
   }
 }
 
-interface RefactoredData {
-  parent: string | undefined
-  children: MarkdownDocument[]
-}
-
 interface MarkdownDocument {
   date: Date
   grandParent: string
@@ -48,19 +43,19 @@ interface IndexPageProps {
 
 interface GrandParentData {
   [key: string]: {
-    grandParent: string | undefined
-    parent: string | undefined
-    children: (MarkdownDocument | MarkDownDocumentNode)[]
+    grandParent: string
+    parent: string
+    children: (MarkdownDocument | MarkdownDocumentNode)[]
   }
 }
 
 interface ParentData {
-  [key: string]: MarkDownDocumentNode
+  [key: string]: MarkdownDocumentNode
 }
 
-interface MarkDownDocumentNode {
-  grandParent: string | undefined
-  parent: string | undefined
+interface MarkdownDocumentNode {
+  grandParent: string
+  parent: string
   children: MarkdownDocument[]
 }
 

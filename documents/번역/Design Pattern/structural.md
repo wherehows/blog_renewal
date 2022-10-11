@@ -2,9 +2,9 @@
 date: '2022-09-21'
 title: 'Design Pattern - structural'
 subTitle: 'Design Pattern - structural'
-grandParent: 'Study'
+grandParent: ''
 parent: 'Design Pattern'
-slug: '/study/design-pattern'
+slug: '/design-pattern/structural'
 ---
 
 본 글은 [refactoring.guru](https://refactoring.guru/), [Design Patterns In Typescript](https://sbcode.net/typescript/), [Learning JavaScript Design Patterns](https://www.patterns.dev/posts/classic-design-patterns/)의 내용을 참고, 번역했습니다.

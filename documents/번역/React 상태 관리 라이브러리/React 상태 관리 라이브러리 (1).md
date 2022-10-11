@@ -2,9 +2,9 @@
 date: '2022-09-03'
 title: 'React 상태 관리 라이브러리 (1)'
 subTitle: 'React 상태 관리 라이브러리 (1)'
-grandParent: 'Study'
-parent: 'State Management'
-slug: '/study/react-state-management-1'
+grandParent: ''
+parent: 'React'
+slug: '/react/react-state-management-1'
 ---
 
 본 글은 [React State Management Libraries and How to Choose](https://daveceddia.com/react-state-management/)의 일부를 번역해놓은 글 입니다.

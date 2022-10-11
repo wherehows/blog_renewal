@@ -86,8 +86,9 @@ const getDocumentTree = (edges: Edge[]) => {
     }
   }
 
-  return Object.values(grandParentData).reverse()
+  return moveWeeklyJournalToLast(Object.values(grandParentData).reverse())
 }
+
 const getSelectedDocument = (edges: Edge[], targetDocumentPath: string) => {
   const edge = edges.find(({ node }: Edge) => {
     if (node.frontmatter.slug === targetDocumentPath) {
@@ -96,5 +97,32 @@ const getSelectedDocument = (edges: Edge[], targetDocumentPath: string) => {
   })
 
   return edge && edge.node.html
+}
+
+const moveWeeklyJournalToLast = (
+  documentTree: GrandParentData[keyof GrandParentData][],
+) => {
+  let tempWeeklyJournalToLast = null
+
+  const res = documentTree.reduce(
+    (
+      res: GrandParentData[keyof GrandParentData][],
+      markdownDocumentNode: GrandParentData[keyof GrandParentData],
+    ) => {
+      const { parent } = markdownDocumentNode
+
+      if (parent === 'Weekly Journal') {
+        tempWeeklyJournalToLast = markdownDocumentNode
+        return res
+      }
+
+      res.push(markdownDocumentNode)
+      return res
+    },
+    [],
+  )
+
+  tempWeeklyJournalToLast && res.push(tempWeeklyJournalToLast)
+  return res
 }
 

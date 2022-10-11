@@ -2,9 +2,9 @@
 date: '2022-09-30'
 title: '리액트 deep dive (1)'
 subTitle: '리액트 deep dive (1)'
-grandParent: 'Study'
+grandParent: ''
 parent: 'React'
-slug: '/study/react-deep-dive-1'
+slug: '/react/react-deep-dive-1'
 ---
 
 ## 📌 객체 지향의 UI 프로그래밍 (object-oriented UI programming)

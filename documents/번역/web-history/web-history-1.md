@@ -2,9 +2,9 @@
 date: '2022-10-02'
 title: 'Web History (1)'
 subTitle: 'Web History (1)'
-grandParent: 'Study'
+grandParent: ''
 parent: 'Web'
-slug: '/study/web-history-1'
+slug: '/web/web-history-1'
 ---
 
 본 글은 [A "Brief" History of the Web](https://dev.to/snickdx/a-brief-history-of-the-web-9c3)의 내용을 번역했습니다.

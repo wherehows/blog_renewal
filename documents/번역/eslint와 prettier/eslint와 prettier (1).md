@@ -1,10 +1,10 @@
 ---
 date: '2022-08-29'
-title: 'eslint와 prettier'
+title: 'eslint와 prettier (1)'
 subTitle: 'ESLint와 Prettier (1)'
-grandParent: 'Study'
-parent: 'ESLint and Prettier'
-slug: '/study/lint-prettier-1'
+grandParent: ''
+parent: 'Lint'
+slug: '/lint/lint-prettier-1'
 ---
 
 ## 📌 ESLint란?

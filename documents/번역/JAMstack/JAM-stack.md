@@ -2,9 +2,9 @@
 date: '2022-10-09'
 title: 'Jamstack'
 subTitle: 'Jamstack'
-grandParent: 'Study'
+grandParent: ''
 parent: 'Web'
-slug: '/study/jamstack'
+slug: '/web/jamstack'
 ---
 
 본 글은 [What is Jamstack](https://umbraco.com/knowledge-base/jamstack/)의 내용을 참고, 번역했습니다.
