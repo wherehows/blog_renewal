@@ -1,7 +1,7 @@
 ---
 date: '2022-09-21'
-title: 'Design Pattern - structural'
-subTitle: 'Design Pattern - structural'
+title: 'structural'
+subTitle: 'structural'
 grandParent: ''
 parent: 'Design Pattern'
 slug: '/design-pattern/structural'
@@ -9,9 +9,9 @@ slug: '/design-pattern/structural'
 
 본 글은 [refactoring.guru](https://refactoring.guru/), [Design Patterns In Typescript](https://sbcode.net/typescript/), [Learning JavaScript Design Patterns](https://www.patterns.dev/posts/classic-design-patterns/)의 내용을 참고, 번역했습니다.
 
-## 📌 Facade Pattern
+## 📌 Facade
 
-structural pattern에 속하며, 라이브러리나 프레임워크에 대한 간단하고 편리한 인터페이스를 제공합니다.
+라이브러리나 프레임워크에 대한 간단하고 편리한 인터페이스를 제공합니다.
 
 ### 1. Problem and Solution
 
