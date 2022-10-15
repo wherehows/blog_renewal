@@ -7,7 +7,7 @@ parent: 'Typescript'
 slug: '/typescript/mapped-type'
 ---
 
-## 📌 타입스크립트에서 Mapped Type은 왜 사용될까요?
+## 📌 타입스크립트에서 mapped type은 왜 사용될까요?
 
 mapped type은 어떤 타입을 기반으로 타입을 선언해야 할때 유용합니다.
 
@@ -42,11 +42,11 @@ type AppPermissions = {
 
 우리는 Property와 keyof 연산자 사이의 in을 통해 mapped type이 사용되었음을 알수 있습니다. 위 코드에서는 타입 시스템이 AppConfig와 AppPermissions의 관계를 관리하기 때문에, AppConfig에 새로운 필드가 추가될 때마다 개발자가 직접 AppPermissions에 추가해줄 필요가 없어졌습니다.
 
-## 📌 Mapped Type의 코어 개념
+## 📌 mapped type의 코어 개념
 
 mapped type의 코어 개념에는, map, indexed access type, index signature, union type, keyof type operator 등이 있습니다. 해당 내용을 따로 기술하진 않겠습니다.
 
-## 📌 Mapped Type의 사용 예제와 해석
+## 📌 mapped type의 사용 예제와 해석
 
 사용 예제를 이해하기 전에 mapped type의 기본 구조에 대해서 한가지만 알고 갑시다.
 
@@ -155,5 +155,5 @@ type AccessoryFormatter = Formatter<Accessory>
 
 **[Mastering mapped types in TypeScript](https://blog.logrocket.com/mastering-mapped-types-typescript/)**
 
-**[Mapped Types in TypeScript](https://mariusschulz.com/blog/mapped-types-in-typescript)**
+**[mapped types in TypeScript](https://mariusschulz.com/blog/mapped-types-in-typescript)**
 
