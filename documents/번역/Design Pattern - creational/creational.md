@@ -7,7 +7,7 @@ parent: 'Design Pattern'
 slug: '/design-pattern/creational'
 ---
 
-본 글은 [refactoring.guru](https://refactoring.guru/), [sbcode](https://sbcode.net/typescript/), [patterns.dev](https://www.patterns.dev/posts/classic-design-patterns/)의 내용을 참고, 번역했습니다.
+본 글은 [refactoring.guru](https://refactoring.guru/), [sbcode](https://sbcode.net/typescript/), [patterns.dev](https://www.patterns.dev/posts/proxy-pattern/)의 내용을 참고, 번역했습니다.
 
 ## 📌 Singleton
 
