@@ -1,4 +1,4 @@
----
+<!-- ---
 date: '2022-09-11'
 title: 'type-challenge'
 subTitle: 'type-challenge'
@@ -19,4 +19,5 @@ slug: '/typescript/type-challenge'
 보리스 체르니 책 : 167p ~
 
 ### 5. TupleToObject
+ -->
 
