@@ -1,4 +1,4 @@
----
+<!-- ---
 date: '2022-10-16'
 title: 'GraphQL introduction'
 subTitle: 'GraphQL이란?'
@@ -160,4 +160,5 @@ https://www.apollographql.com/blog/graphql/basics/the-anatomy-of-a-graphql-query
 https://docs.hypi.app/docs/lowcode/gql-schema-types/
 
 **[GraphQL Mutation vs Query – When to use a GraphQL Mutation](https://www.apollographql.com/blog/graphql/basics/mutation-vs-query-when-to-use-graphql-mutation/)**
+ -->
 
