@@ -1,4 +1,4 @@
----
+<!-- ---
 date: '2022-10-99'
 title: 'architectural pattern'
 subTitle: 'architectural pattern'
@@ -36,4 +36,5 @@ Model과 View, Controller의
 
 **[What really is the "business logic"?](https://softwareengineering.stackexchange.com/questions/234251/what-really-is-the-business-logic)**
 
-**[Difference Between MVC, MVP and MVVM Architecture Pattern in Android](https://www.geeksforgeeks.org/difference-between-mvc-mvp-and-mvvm-architecture-pattern-in-android/)**
+**[Difference Between MVC, MVP and MVVM Architecture Pattern in Android](https://www.geeksforgeeks.org/difference-between-mvc-mvp-and-mvvm-architecture-pattern-in-android/)** -->
+
