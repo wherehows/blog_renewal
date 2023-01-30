@@ -31,7 +31,6 @@ const Wrapper = styled('div')(() => ({
   position: 'fixed',
   left: 0,
   top: 0,
-  // zIndex: 1,
   color: '#ba7f4a',
 }))
 
