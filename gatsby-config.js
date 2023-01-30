@@ -41,12 +41,6 @@ module.exports = {
               dashes: 'oldschool',
             },
           },
-          // {
-          //   resolve: 'gatsby-remark-prismjs',
-          //   options: {
-          //     classPrefix: 'language-',
-          //   },
-          // },
           {
             resolve: 'gatsby-remark-images',
             options: {
