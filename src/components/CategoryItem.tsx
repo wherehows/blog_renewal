@@ -10,22 +10,20 @@ const CategoryItem = ({ folder }: CategoryItem) => {
   const { parent, children } = folder
 
   return (
-    <>
-      <ListWrapper>
-        <FolderName>{parent}</FolderName>
-        <ParentWrapper>
-          {children.map((child, index) => (
-            <ChildListWrapper key={index}>
-              {'children' in child ? (
-                <CategoryItem folder={child} />
-              ) : (
-                <LinkButton to={child.slug}>{child.subTitle}</LinkButton>
-              )}
-            </ChildListWrapper>
-          ))}
-        </ParentWrapper>
-      </ListWrapper>
-    </>
+    <ListWrapper>
+      <FolderName>{parent}</FolderName>
+      <ParentWrapper>
+        {children.map((child, index) => (
+          <ChildListWrapper key={index}>
+            {'children' in child ? (
+              <CategoryItem folder={child} />
+            ) : (
+              <LinkButton to={child.slug}>{child.subTitle}</LinkButton>
+            )}
+          </ChildListWrapper>
+        ))}
+      </ParentWrapper>
+    </ListWrapper>
   )
 }
 

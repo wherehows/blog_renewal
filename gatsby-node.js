@@ -5,6 +5,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     resolve: {
       alias: {
         '@components': path.resolve(__dirname, './src/components'),
+        '@utils': path.resolve(__dirname, './src/utils'),
       },
     },
   })
@@ -36,8 +37,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       }
     }
   `)
-
-  // Handle errors
 
   if (result.errors) {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
