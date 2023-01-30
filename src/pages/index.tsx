@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 import '../styles/global.css'
 import Sidebar from '@components/Sidebar'
 import Content from '@components/Content'
-import { getAllDocumentsWithSort, getFolderStructureTree } from 'utils/helpers'
+import { getAllDocumentsWithSort, getFolderStructureTree } from '@utils/helpers'
 
 const IndexPage = ({
   data: {
