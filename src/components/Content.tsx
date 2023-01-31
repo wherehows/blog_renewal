@@ -22,8 +22,8 @@ const Content = ({ documents, selectedDocument }: ContentProps) => {
             <DocumentItem key={slug}>
               <Button to={slug}>
                 <Title>{title}</Title>
-                <PostDate>{formDate(date)}</PostDate>
-                <Description>{markdownToTextContent(html)}</Description>
+                <PostDate>{formatDate(date)}</PostDate>
+                <Description>{changeMarkdownToTextContent(html)}</Description>
               </Button>
             </DocumentItem>
           ))}
@@ -114,13 +114,13 @@ const DocumentList = styled('ul')(() => ({
   marginTop: '1rem',
 }))
 
-const markdownToTextContent = (s: any) => {
+const changeMarkdownToTextContent = (s: any) => {
   var dummyTag = document.createElement('span')
   dummyTag.innerHTML = s
   return dummyTag.textContent || dummyTag.innerText
 }
 
-const formDate = (s: any) => {
+const formatDate = (s: any) => {
   const sArray = s.split('-')
   return `${sArray[0].slice(2, 4)}년 ${sArray[1]}월 ${sArray[2]}일`
 }
