@@ -10,7 +10,7 @@ const CategoryItem = ({ folder }: CategoryItem) => {
   const { parent, children } = folder
 
   return (
-    <ListWrapper>
+    <Wrapper>
       <FolderName>{parent}</FolderName>
       <ParentWrapper>
         {children.map((child, index) => (
@@ -23,13 +23,13 @@ const CategoryItem = ({ folder }: CategoryItem) => {
           </ChildListWrapper>
         ))}
       </ParentWrapper>
-    </ListWrapper>
+    </Wrapper>
   )
 }
 
 export default CategoryItem
 
-const ListWrapper = styled('li')(() => ({
+const Wrapper = styled('li')(() => ({
   listStyleType: 'none',
   padding: '0',
   margin: '0',
