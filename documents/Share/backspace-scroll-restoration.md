@@ -1,12 +1,3 @@
----
-date: '2023-02-09'
-title: 'nextjs 스크롤 복원'
-subTitle: 'nextjs에서 뒤로가기시 스크롤 복원하는 방법'
-grandParent: ''
-parent: 'Share'
-slug: '/share/nextjs-scroll-restore'
----
-
 웹뷰 프로젝트를 진행하면서, dynamic routing 페이지에서 뒤로가기를 구현하면서 겪은 시행착오와 문제점들을 해결한 과정을 공유합니다.
 
 목차는 다음과 같습니다.
