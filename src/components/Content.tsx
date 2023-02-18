@@ -105,8 +105,8 @@ const Description = styled('div')(() => ({
   height: '3.6rem',
   textAlign: 'left',
   wordWrap: 'break-word',
-  '-webkit-line-clamp': 3,
-  '-webkit-box-orient': 'vertical',
+  webkitLineClamp: 3,
+  WebkitBoxOrient: 'vertical',
 }));
 
 const DocumentList = styled('ul')(() => ({
