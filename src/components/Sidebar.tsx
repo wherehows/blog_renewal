@@ -1,9 +1,9 @@
-import React from 'react'
-import styled from '@emotion/styled'
-import CategoryItem from './CategoryItem'
+import React from 'react';
+import styled from '@emotion/styled';
+import CategoryItem from './CategoryItem';
 
 interface SidebarProps {
-  documentTree: GrandParentData[keyof GrandParentData][]
+  documentTree: GrandParentData[keyof GrandParentData][];
 }
 
 const Sidebar = ({ documentTree }: SidebarProps) => {
@@ -15,10 +15,10 @@ const Sidebar = ({ documentTree }: SidebarProps) => {
         ))}
       </CategoryList>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default Sidebar
+export default Sidebar;
 
 const Wrapper = styled('div')(() => ({
   width: 'calc((100% - 70rem) / 2 + 18rem)',
@@ -32,7 +32,7 @@ const Wrapper = styled('div')(() => ({
   left: 0,
   top: 0,
   color: '#ba7f4a',
-}))
+}));
 
 const CategoryList = styled('ul')(() => ({
   width: '18rem',
@@ -40,5 +40,4 @@ const CategoryList = styled('ul')(() => ({
   backgroundColor: 'transparent',
   position: 'relative',
   padding: 0,
-}))
-
+}));
