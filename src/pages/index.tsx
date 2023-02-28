@@ -1,27 +1,30 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import '../styles/global.css'
-import Sidebar from '@components/Sidebar'
-import Content from '@components/Content'
-import { getAllDocumentsWithSort, getFolderStructureTree } from '@utils/helpers'
+import React from 'react';
+import { graphql } from 'gatsby';
+import '../styles/global.css';
+import Sidebar from '@components/Sidebar';
+import Content from '@components/Content';
+import {
+  getAllDocumentsWithSort,
+  getFolderStructureTree,
+} from '@utils/helpers';
 
 const IndexPage = ({
   data: {
     allMarkdownRemark: { edges },
   },
 }: IndexPageProps) => {
-  const documentTree = getFolderStructureTree(edges)
-  const documents = getAllDocumentsWithSort(edges)
+  const documentTree = getFolderStructureTree(edges);
+  const documents = getAllDocumentsWithSort(edges);
 
   return (
     <>
       <Sidebar documentTree={documentTree} />
       <Content documents={documents} />
     </>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
 
 export const getPostList = graphql`
   query getPostList {
@@ -45,5 +48,4 @@ export const getPostList = graphql`
       }
     }
   }
-`
-
+`;

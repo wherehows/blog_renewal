@@ -1,7 +1,7 @@
-import React from 'react'
-import Content from '@components/Content'
-import Sidebar from '@components/Sidebar'
-import { getFolderStructureTree } from '@utils/helpers'
+import React from 'react';
+import Content from '@components/Content';
+import Sidebar from '@components/Sidebar';
+import { getFolderStructureTree } from '@utils/helpers';
 
 export default function Post({
   pageContext: {
@@ -9,24 +9,23 @@ export default function Post({
   },
   path,
 }: any) {
-  const documentTree = getFolderStructureTree(edges)
-  const selectedDocument = getSelectedDocument(edges, path)
+  const documentTree = getFolderStructureTree(edges);
+  const selectedDocument = getSelectedDocument(edges, path);
 
   return (
     <>
       <Sidebar documentTree={documentTree} />
       <Content selectedDocument={selectedDocument} />
     </>
-  )
+  );
 }
 
 const getSelectedDocument = (edges: Edge[], targetDocumentPath: string) => {
   const edge = edges.find(({ node }: Edge) => {
     if (node.frontmatter.slug === targetDocumentPath) {
-      return true
+      return true;
     }
-  })
+  });
 
-  return edge && edge.node.html
-}
-
+  return edge && edge.node.html;
+};

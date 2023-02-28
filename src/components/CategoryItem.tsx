@@ -1,13 +1,13 @@
-import React from 'react'
-import styled from '@emotion/styled'
-import { Link } from 'gatsby'
+import React from 'react';
+import styled from '@emotion/styled';
+import { Link } from 'gatsby';
 
 interface CategoryItem {
-  folder: GrandParentData[keyof GrandParentData]
+  folder: GrandParentData[keyof GrandParentData];
 }
 
 const CategoryItem = ({ folder }: CategoryItem) => {
-  const { parent, children } = folder
+  const { parent, children } = folder;
 
   return (
     <Wrapper>
@@ -24,21 +24,21 @@ const CategoryItem = ({ folder }: CategoryItem) => {
         ))}
       </ParentWrapper>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default CategoryItem
+export default CategoryItem;
 
 const Wrapper = styled('li')(() => ({
   listStyleType: 'none',
   padding: '0',
   margin: '0',
-}))
+}));
 
 const ParentWrapper = styled('ul')(() => ({
   padding: 0,
   margin: '0.14rem 0 0 0',
-}))
+}));
 
 const FolderName = styled('div')(() => ({
   backgroundColor: 'transparent',
@@ -46,7 +46,7 @@ const FolderName = styled('div')(() => ({
   cursor: 'pointer',
   fontSize: '1rem',
   fontWeight: 'bold',
-}))
+}));
 
 const LinkButton = styled(Link)(() => ({
   fontFamily: 'inherit',
@@ -69,11 +69,10 @@ const LinkButton = styled(Link)(() => ({
     textDecoration: 'none',
     color: 'dark',
   },
-}))
+}));
 
 const ChildListWrapper = styled('li')(() => ({
   listStyleType: 'none',
   padding: '0',
   margin: '0 0 0 1.8rem',
-}))
-
+}));
