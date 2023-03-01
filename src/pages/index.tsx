@@ -1,12 +1,12 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import '../styles/global.css';
 import Sidebar from '@components/Sidebar';
 import Content from '@components/Content';
 import {
   getAllDocumentsWithSort,
   getFolderStructureTree,
 } from '@utils/helpers';
+import ResetCSS from '@components/ResetCSS';
 
 const IndexPage = ({
   data: {
@@ -18,6 +18,7 @@ const IndexPage = ({
 
   return (
     <>
+      <ResetCSS />
       <Sidebar documentTree={documentTree} />
       <Content documents={documents} />
     </>

@@ -2,6 +2,7 @@ import React from 'react';
 import Content from '@components/Content';
 import Sidebar from '@components/Sidebar';
 import { getFolderStructureTree } from '@utils/helpers';
+import ResetCSS from '@components/ResetCSS';
 
 export default function Post({
   pageContext: {
@@ -14,6 +15,7 @@ export default function Post({
 
   return (
     <>
+      <ResetCSS />
       <Sidebar documentTree={documentTree} />
       <Content selectedDocument={selectedDocument} />
     </>
