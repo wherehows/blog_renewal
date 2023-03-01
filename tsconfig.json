@@ -1,16 +1,10 @@
 {
-  "include": [
-    "./src/**/*"
-  ],
+  "include": ["./src/**/*"],
   "compilerOptions": {
     "target": "ES6",
     "moduleResolution": "node",
-    "jsx": "react-jsx",
-    "lib": [
-      "dom",
-      "ES2015",
-      "es2017"
-    ],
+    "jsx": "react",
+    "lib": ["dom", "ES2015", "es2017"],
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -20,12 +14,9 @@
     "removeComments": false,
     "baseUrl": "./src",
     "paths": {
-      "@components/*": [
-        "components/*"
-      ],
-      "@utils/*": [
-        "utils/*"
-      ]
+      "@components/*": ["components/*"],
+      "@utils/*": ["utils/*"]
     }
   }
 }
+

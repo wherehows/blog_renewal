@@ -1,5 +1,6 @@
 import { Global, css } from '@emotion/react';
 import GlobalFont from '../fonts/GlobalFont';
+import React from 'react';
 
 const ResetCSS = () => {
   return (
