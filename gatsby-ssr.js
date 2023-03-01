@@ -5,3 +5,8 @@
  */
 
 // You can delete this file if you're not using it
+
+exports.onRenderBody = ({ setHeadComponents }) => {
+  setHeadComponents([<script src="./src/utils/darkMode.ts" />])
+}
+
