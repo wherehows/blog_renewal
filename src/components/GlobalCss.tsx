@@ -1,11 +1,11 @@
 import { Global, css } from '@emotion/react';
-import GlobalFont from '../fonts/GlobalFont';
+import Font from '../fonts/Font';
 
-const ResetCSS = () => {
+const GlobalCss = () => {
   return (
     <Global
       styles={css`
-        ${GlobalFont}
+        ${Font}
 
         *,
         *::before,
@@ -58,4 +58,4 @@ const ResetCSS = () => {
   );
 };
 
-export default ResetCSS;
+export default GlobalCss;
