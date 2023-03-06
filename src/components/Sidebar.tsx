@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { SIDEBAR_WIDTH } from '@utils/const';
 import CategoryItem from './CategoryItem';
 
 interface SidebarProps {
@@ -20,7 +21,7 @@ const Sidebar = ({ documentTree }: SidebarProps) => {
 export default Sidebar;
 
 const Wrapper = styled('div')(() => ({
-  width: 'calc((100% - 70rem) / 2 + 18rem)',
+  width: SIDEBAR_WIDTH,
   height: '100vh',
   backgroundColor: '#fff5e6',
   display: 'flex',

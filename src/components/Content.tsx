@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { CONTENT_LEFT_MARGIN_WIDTH, CONTENT_WIDTH } from '@utils/const';
 import { Link } from 'gatsby';
 
 interface ContentProps {
@@ -36,8 +37,8 @@ export default Content;
 
 const Wrapper = styled('div')(() => ({
   diplay: 'flex',
-  marginLeft: 'calc((100% - 70rem) /2 + 21rem)',
-  width: '46rem',
+  marginLeft: CONTENT_LEFT_MARGIN_WIDTH,
+  width: CONTENT_WIDTH,
   height: '100%',
 }));
 
