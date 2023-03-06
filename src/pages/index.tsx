@@ -5,7 +5,7 @@ import {
   getAllDocumentsWithSort,
   getFolderStructureTree,
 } from '@utils/helpers';
-import ResetCSS from '@components/ResetCSS';
+import GlobalCss from '@components/GlobalCss';
 
 const IndexPage = ({
   data: {
@@ -17,7 +17,7 @@ const IndexPage = ({
 
   return (
     <>
-      <ResetCSS />
+      <GlobalCss />
       <Sidebar documentTree={documentTree} />
       <Content documents={documents} />
     </>
