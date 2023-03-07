@@ -1,0 +1,8 @@
+const BOTH_SIDE_MARGIN_WIDTH = 'calc(100% - 70rem)';
+const ONE_SIDE_MARGIN_WIDTH = `calc(${BOTH_SIDE_MARGIN_WIDTH} / 2)`;
+
+const SIDEBAR_PURE_WIDTH = '18rem';
+export const SIDEBAR_WIDTH = `calc(${SIDEBAR_PURE_WIDTH} + ${ONE_SIDE_MARGIN_WIDTH})`;
+
+export const CONTENT_LEFT_MARGIN_WIDTH = `calc(${SIDEBAR_WIDTH} + 3rem)`;
+export const CONTENT_WIDTH = `calc(100% - ${CONTENT_LEFT_MARGIN_WIDTH} - ${ONE_SIDE_MARGIN_WIDTH})`;
