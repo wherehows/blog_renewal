@@ -68,16 +68,16 @@ const Button = styled(Link)(() => ({
   width: '100%',
   padding: 0,
   cursor: 'pointer',
-  color: 'black',
+  color: 'inherit',
   textDecoration: 'none',
   outline: 'none',
   '&:hover': {
     textDecoration: 'none',
-    color: 'black',
+    color: 'inherit',
   },
   '&:active': {
     textDecoration: 'none',
-    color: 'black',
+    color: 'inherit',
   },
 }));
 
