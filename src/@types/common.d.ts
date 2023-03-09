@@ -33,14 +33,6 @@ interface MarkdownDocument {
   id: string;
 }
 
-interface IndexPageProps {
-  data: {
-    allMarkdownRemark: {
-      edges: Edge[];
-    };
-  };
-}
-
 interface GrandParentData {
   [key: string]: {
     grandParent: string;
