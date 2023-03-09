@@ -23,7 +23,6 @@ export default Sidebar;
 const Wrapper = styled('div')(() => ({
   width: SIDEBAR_WIDTH,
   height: '100vh',
-  backgroundColor: '#fff5e6',
   display: 'flex',
   flexWrap: 'nowrap',
   justifyContent: 'flex-end',
@@ -31,6 +30,7 @@ const Wrapper = styled('div')(() => ({
   position: 'fixed',
   left: 0,
   top: 0,
+  overflow: 'scroll',
   color: '#ba7f4a',
 }));
 
