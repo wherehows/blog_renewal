@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 import { SIDEBAR_WIDTH } from '@utils/const';
 import CategoryItem from './CategoryItem';
+import DarkModeToggle from './DarkModeToggle';
 
 interface SidebarProps {
   documentTree: GrandParentData[keyof GrandParentData][];
@@ -9,6 +10,7 @@ interface SidebarProps {
 const Sidebar = ({ documentTree }: SidebarProps) => {
   return (
     <Wrapper>
+      <DarkModeToggle />
       <CategoryList>
         {documentTree.map((folder, index) => (
           <CategoryItem key={index} folder={folder} />
