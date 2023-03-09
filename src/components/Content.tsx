@@ -85,7 +85,7 @@ const Title = styled('div')(() => ({
   textAlign: 'left',
   width: '100%',
   fontSize: '1.4rem',
-  color: '#946225',
+  color: '#d58135',
 }));
 
 const PostDate = styled('div')(() => ({

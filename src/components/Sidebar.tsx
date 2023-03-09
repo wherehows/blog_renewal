@@ -30,8 +30,7 @@ const Wrapper = styled('div')(() => ({
   left: 0,
   top: 0,
   overflow: 'scroll',
-  color: '#ba7f4a',
-  overflow: 'scroll',
+  color: '#d58135',
 }));
 
 const CategoryList = styled('ul')(() => ({
