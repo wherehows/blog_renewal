@@ -54,19 +54,17 @@ const LinkButton = styled(Link)(() => ({
   cursor: 'pointer',
   fontSize: '1rem',
   padding: '0',
-  color: 'black',
+  color: 'var(--dark-font)',
   textDecoration: 'none',
   outline: 'none',
 
   '&:hover': {
     textDecoration: 'none',
-    color: 'dark',
     fontWeight: 'bold',
   },
 
   '&:active': {
     textDecoration: 'none',
-    color: 'dark',
   },
 }));
 
