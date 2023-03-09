@@ -24,7 +24,9 @@ const DarkModeToggle = () => {
   );
 };
 
-const Wrapper = styled('label')(() => ({}));
+const Wrapper = styled('label')(() => ({
+  margin: '1rem 1rem 0 0',
+}));
 
 const ToggleBody = styled('input')(() => ({
   WebkitAppearance: 'none',
@@ -36,7 +38,7 @@ const Circle = styled('span')<{ isOn: boolean }>(({ isOn }) => ({
   display: 'block',
   width: '60px',
   height: '30px',
-  background: !isOn ? '#fff' : '#092c3e',
+  background: isOn ? '#cf9a12' : '#eadbdb',
   cursor: 'pointer',
   borderRadius: '20px',
   overflow: 'hidden',
@@ -47,12 +49,12 @@ const Circle = styled('span')<{ isOn: boolean }>(({ isOn }) => ({
     position: 'absolute',
     top: '3px',
     left: '3px',
-    backgroundColor: !isOn ? '#fff5e6' : '#fff',
+    backgroundColor: '#fff',
     width: '24px',
     height: '24px',
     borderRadius: '50%',
     transition: '0.5s',
-    transform: !isOn ? 'translateX(-60px)' : 'translateX(0px)',
+    transform: isOn ? 'translateX(0px)' : 'translateX(-60px)',
   },
 
   '&:after': {
@@ -60,7 +62,7 @@ const Circle = styled('span')<{ isOn: boolean }>(({ isOn }) => ({
     position: 'absolute',
     top: '3px',
     left: '3px',
-    backgroundColor: !isOn ? '#092c3e' : '#fff5e6',
+    backgroundColor: '#fff',
     width: '24px',
     height: '24px',
     borderRadius: '50%',
