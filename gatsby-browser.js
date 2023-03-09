@@ -7,3 +7,5 @@
 // You can delete this file if you're not using it
 // import 'prismjs/themes/prism-tomorrow.css';
 
+import './src/utils/darkMode'
+

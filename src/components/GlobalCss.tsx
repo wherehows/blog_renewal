@@ -7,6 +7,16 @@ const GlobalCss = () => {
       styles={css`
         ${Font}
 
+        :root .dark {
+          --dark-background: #000;
+          --dark-font: #fff;
+        }
+
+        :root .light {
+          --dark-background: #fff;
+          --dark-font: #000;
+        }
+
         *,
         *::before,
         *::after {
@@ -22,6 +32,8 @@ const GlobalCss = () => {
         body {
           line-height: 1.5;
           -webkit-font-smoothing: antialiased;
+          background: var(--dark-background);
+          color: var(--dark-font);
         }
 
         img,

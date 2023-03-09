@@ -59,3 +59,4 @@ interface MarkdownDocumentNode {
   children: MarkdownDocument[]
 }
 
+type Theme = 'dark' | 'light'
