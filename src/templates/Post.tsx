@@ -3,12 +3,17 @@ import Sidebar from '@components/Sidebar';
 import { getFolderStructureTree } from '@utils/helpers';
 import GlobalCss from '@components/GlobalCss';
 
+interface PostProps {
+  pageContext: IndexPageProps['data'];
+  path: string;
+}
+
 export default function Post({
   pageContext: {
     allMarkdownRemark: { edges },
   },
   path,
-}: any) {
+}: PostProps) {
   const documentTree = getFolderStructureTree(edges);
   const selectedDocument = getSelectedDocument(edges, path);
 

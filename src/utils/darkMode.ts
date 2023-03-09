@@ -1,39 +1,38 @@
 const isTheme = (theme: string): theme is Theme =>
-  theme === 'dark' || theme === 'light'
+  theme === 'dark' || theme === 'light';
 
 function setTheme(theme: Theme) {
-  window.__theme = theme
+  window.__theme = theme;
 
   if (theme === 'dark') {
-    document.body.className = 'dark'
+    document.body.className = 'dark';
   } else {
-    document.body.className = 'light'
+    document.body.className = 'light';
   }
 }
 
 window.__setPreferredTheme = function (theme) {
-  setTheme(theme)
+  setTheme(theme);
 
   try {
-    localStorage.setItem('preferred-theme', theme)
+    localStorage.setItem('preferred-theme', theme);
   } catch (e) {
-    console.error(e)
+    console.error(e);
   }
-}
+};
 
-let preferredTheme: Theme | null = null
+let preferredTheme: Theme | null = null;
 
 try {
-  const storedTheme = localStorage.getItem('preferred-theme')
+  const storedTheme = localStorage.getItem('preferred-theme');
 
   if (storedTheme && isTheme(storedTheme)) {
-    preferredTheme = storedTheme
+    preferredTheme = storedTheme;
   }
 } catch (e) {
-  console.error(e)
+  console.error(e);
 }
 
-let darkQuery = window.matchMedia('(prefers-color-scheme: dark)')
+const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'))
-
+setTheme(preferredTheme || (darkQuery.matches ? 'dark' : 'light'));

@@ -2,6 +2,10 @@ import styled from '@emotion/styled';
 import { ChangeEvent, useState } from 'react';
 
 const DarkModeToggle = () => {
+  if (typeof window === 'undefined') {
+    return <></>;
+  }
+
   const [isOn, setIsOn] = useState(window.__theme === 'dark');
 
   const handleClickCheckBox = (e: ChangeEvent<HTMLInputElement>) => {

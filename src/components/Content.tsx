@@ -18,7 +18,7 @@ const Content = ({ documents, selectedDocument }: ContentProps) => {
         />
       ) : (
         <DocumentList>
-          {documents?.map(({ html, title, date, slug }: any) => (
+          {documents?.map(({ html, title, date, slug }: MarkdownDocument) => (
             <DocumentItem key={slug}>
               <Button to={slug}>
                 <Title>{title}</Title>
@@ -114,13 +114,13 @@ const DocumentList = styled('ul')(() => ({
   marginTop: '1rem',
 }));
 
-const changeMarkdownToTextContent = (s: any) => {
+const changeMarkdownToTextContent = (html: MarkdownDocument['html']) => {
   const dummyTag = document.createElement('span');
-  dummyTag.innerHTML = s;
+  dummyTag.innerHTML = html;
   return dummyTag.textContent || dummyTag.innerText;
 };
 
-const formatDate = (s: any) => {
-  const sArray = s.split('-');
+const formatDate = (date: MarkdownDocument['date']) => {
+  const sArray = date.toString().split('-');
   return `${sArray[0].slice(2, 4)}년 ${sArray[1]}월 ${sArray[2]}일`;
 };
