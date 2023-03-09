@@ -30,6 +30,7 @@ const Wrapper = styled('div')(() => ({
   position: 'fixed',
   left: 0,
   top: 0,
+  overflow: 'scroll',
   color: '#ba7f4a',
 }));
 
