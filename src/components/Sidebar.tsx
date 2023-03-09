@@ -24,14 +24,14 @@ const Wrapper = styled('div')(() => ({
   width: SIDEBAR_WIDTH,
   height: '100vh',
   display: 'flex',
-  flexWrap: 'nowrap',
-  justifyContent: 'flex-end',
-  alignItems: 'flex-start',
+  flexDirection: 'column',
+  alignItems: 'flex-end',
   position: 'fixed',
   left: 0,
   top: 0,
   overflow: 'scroll',
   color: '#ba7f4a',
+  overflow: 'scroll',
 }));
 
 const CategoryList = styled('ul')(() => ({
