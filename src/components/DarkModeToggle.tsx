@@ -1,22 +1,72 @@
-import { ChangeEventHandler, useState } from 'react';
-import Toggle from 'react-toggle';
-import 'react-toggle/style.css';
+import styled from '@emotion/styled';
+import { ChangeEvent, useState } from 'react';
 
 const DarkModeToggle = () => {
-  if (typeof window === 'undefined') {
-    return <></>;
-  }
+  const [isOn, setIsOn] = useState(window.__theme === 'dark');
 
-  const [checked, setChecked] = useState(window.__theme === 'dark');
-
-  const onChange: ChangeEventHandler<HTMLInputElement> = e => {
+  const handleClickCheckBox = (e: ChangeEvent<HTMLInputElement>) => {
     const isChecked = e.target.checked;
-    setChecked(isChecked);
+    setIsOn(isChecked);
 
     window.__setPreferredTheme(isChecked ? 'dark' : 'light');
   };
 
-  return <Toggle checked={checked} onChange={onChange} />;
+  return (
+    <Wrapper htmlFor="toggle-input">
+      <ToggleBody
+        id="toggle-input"
+        type="checkbox"
+        checked={isOn}
+        onChange={handleClickCheckBox}
+      />
+      <Circle isOn={isOn} />
+    </Wrapper>
+  );
 };
+
+const Wrapper = styled('label')(() => ({}));
+
+const ToggleBody = styled('input')(() => ({
+  WebkitAppearance: 'none',
+  display: 'none',
+}));
+
+const Circle = styled('span')<{ isOn: boolean }>(({ isOn }) => ({
+  position: 'relative',
+  display: 'block',
+  width: '60px',
+  height: '30px',
+  background: !isOn ? '#fff' : '#092c3e',
+  cursor: 'pointer',
+  borderRadius: '20px',
+  overflow: 'hidden',
+  transition: 'ease-in 0.5s',
+
+  '&:before': {
+    content: '""',
+    position: 'absolute',
+    top: '3px',
+    left: '3px',
+    backgroundColor: !isOn ? '#fff5e6' : '#fff',
+    width: '24px',
+    height: '24px',
+    borderRadius: '50%',
+    transition: '0.5s',
+    transform: !isOn ? 'translateX(-60px)' : 'translateX(0px)',
+  },
+
+  '&:after': {
+    content: '""',
+    position: 'absolute',
+    top: '3px',
+    left: '3px',
+    backgroundColor: !isOn ? '#092c3e' : '#fff5e6',
+    width: '24px',
+    height: '24px',
+    borderRadius: '50%',
+    transition: '0.5s',
+    transform: isOn ? 'translateX(60px)' : 'translateX(0px)',
+  },
+}));
 
 export default DarkModeToggle;
