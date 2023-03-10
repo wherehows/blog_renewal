@@ -49,7 +49,7 @@ const DocumentItem = styled('li')(() => ({
 
 const MarkdownRenderer = styled('div')(() => ({
   width: '100%',
-  fontSize: '1.2rem',
+  fontSize: '1rem',
   a: {
     color: '#3347ff',
     textDecoration: 'none',
