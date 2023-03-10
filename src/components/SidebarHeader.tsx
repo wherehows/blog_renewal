@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { SIDEBAR_PURE_WIDTH } from '@utils/const';
-import { Link } from 'gatsby';
+import CustomLink from './CustomLink';
 import DarkModeToggle from './DarkModeToggle';
 
 const SidebarHeader = () => {
@@ -23,7 +23,7 @@ const Wrapper = styled('div')(() => ({
   width: SIDEBAR_PURE_WIDTH,
 }));
 
-const Name = styled(Link)(() => ({}));
+const Name = styled(CustomLink)(() => ({}));
 
 const SubFeature = styled('div')(() => ({
   display: 'flex',
