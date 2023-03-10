@@ -54,8 +54,11 @@ const LinkButton = styled(CustomLink)(() => ({
   cursor: 'pointer',
   fontSize: '1rem',
   padding: '0',
-  textDecoration: 'none',
   outline: 'none',
+
+  '&:hover': {
+    fontWeight: 'bold',
+  },
 }));
 
 const ChildListWrapper = styled('li')(() => ({
