@@ -29,6 +29,6 @@ const Name = styled(CustomLink)(() => ({
 
 const SubFeature = styled('div')(() => ({
   display: 'flex',
-  justifyContent: 'space-between',
+  justifyContent: 'flex-end',
   alignItems: 'center',
 }));
