@@ -42,7 +42,6 @@ const ParentWrapper = styled('ul')(() => ({
 const FolderName = styled('div')(() => ({
   backgroundColor: 'transparent',
   border: 'none',
-  cursor: 'pointer',
   fontSize: '1rem',
   fontWeight: 'bold',
 }));
