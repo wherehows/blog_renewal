@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { SIDEBAR_WIDTH } from '@utils/const';
+import { SIDEBAR_PURE_WIDTH, SIDEBAR_WIDTH } from '@utils/const';
 import CategoryItem from './CategoryItem';
 import DarkModeToggle from './DarkModeToggle';
 
@@ -36,7 +36,7 @@ const Wrapper = styled('div')(() => ({
 }));
 
 const CategoryList = styled('ul')(() => ({
-  width: '18rem',
+  width: SIDEBAR_PURE_WIDTH,
   height: '100vh',
   backgroundColor: 'transparent',
   position: 'relative',
