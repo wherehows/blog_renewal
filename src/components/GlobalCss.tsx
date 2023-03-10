@@ -7,6 +7,10 @@ const GlobalCss = () => {
       styles={css`
         ${Font}
 
+        :root {
+          --colors-primary: #d58135;
+        }
+
         :root .dark {
           --dark-background: #000;
           --dark-font: #fff;
