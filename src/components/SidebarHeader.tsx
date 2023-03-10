@@ -23,7 +23,9 @@ const Wrapper = styled('div')(() => ({
   width: SIDEBAR_PURE_WIDTH,
 }));
 
-const Name = styled(CustomLink)(() => ({}));
+const Name = styled(CustomLink)(() => ({
+  fontWeight: 'bold',
+}));
 
 const SubFeature = styled('div')(() => ({
   display: 'flex',
