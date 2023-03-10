@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { CONTENT_LEFT_MARGIN_WIDTH, CONTENT_WIDTH } from '@utils/const';
-import { Link } from 'gatsby';
+import CustomLink from './CustomLink';
 
 interface ContentProps {
   documents?: MarkdownDocument[];
@@ -62,22 +62,17 @@ const MarkdownRenderer = styled('div')(() => ({
   },
 }));
 
-const Button = styled(Link)(() => ({
+const Button = styled(CustomLink)(() => ({
   backgroundColor: 'transparent',
   border: 'none',
   width: '100%',
   padding: 0,
   cursor: 'pointer',
-  color: 'inherit',
   textDecoration: 'none',
   outline: 'none',
+
   '&:hover': {
-    textDecoration: 'none',
-    color: 'inherit',
-  },
-  '&:active': {
-    textDecoration: 'none',
-    color: 'inherit',
+    fontWeight: 'normal',
   },
 }));
 
