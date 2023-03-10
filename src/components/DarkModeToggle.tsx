@@ -28,9 +28,7 @@ const DarkModeToggle = () => {
   );
 };
 
-const Wrapper = styled('label')(() => ({
-  margin: '1rem 1rem 0 0',
-}));
+const Wrapper = styled('label')(() => ({}));
 
 const ToggleBody = styled('input')(() => ({
   WebkitAppearance: 'none',
