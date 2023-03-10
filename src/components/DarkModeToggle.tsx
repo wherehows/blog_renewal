@@ -29,7 +29,7 @@ const DarkModeToggle = () => {
 };
 
 const Wrapper = styled('label')(() => ({
-  margin: '1rem 1rem 0 0',
+  marginRight: '0.5rem',
 }));
 
 const ToggleBody = styled('input')(() => ({
@@ -42,7 +42,7 @@ const Circle = styled('span')<{ isOn: boolean }>(({ isOn }) => ({
   display: 'block',
   width: '60px',
   height: '30px',
-  background: isOn ? '#cf9a12' : '#eadbdb',
+  background: isOn ? 'var(--colors-secondary)' : '#eadbdb',
   cursor: 'pointer',
   borderRadius: '20px',
   overflow: 'hidden',

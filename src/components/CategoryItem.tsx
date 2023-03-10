@@ -42,7 +42,6 @@ const ParentWrapper = styled('ul')(() => ({
 const FolderName = styled('div')(() => ({
   backgroundColor: 'transparent',
   border: 'none',
-  cursor: 'pointer',
   fontSize: '1rem',
   fontWeight: 'bold',
   color: 'var(--colors-primary)',
@@ -55,8 +54,11 @@ const LinkButton = styled(CustomLink)(() => ({
   cursor: 'pointer',
   fontSize: '1rem',
   padding: '0',
-  textDecoration: 'none',
   outline: 'none',
+
+  '&:hover': {
+    fontWeight: 'bold',
+  },
 }));
 
 const ChildListWrapper = styled('li')(() => ({

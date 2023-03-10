@@ -9,6 +9,7 @@ const GlobalCss = () => {
 
         :root {
           --colors-primary: #d58135;
+          --colors-secondary: #cf9a12;
         }
 
         :root .dark {

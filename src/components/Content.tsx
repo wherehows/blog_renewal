@@ -68,12 +68,7 @@ const Button = styled(CustomLink)(() => ({
   width: '100%',
   padding: 0,
   cursor: 'pointer',
-  textDecoration: 'none',
   outline: 'none',
-
-  '&:hover': {
-    fontWeight: 'normal',
-  },
 }));
 
 const Title = styled('div')(() => ({
