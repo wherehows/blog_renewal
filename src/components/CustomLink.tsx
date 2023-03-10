@@ -7,7 +7,6 @@ const CustomLink = styled(Link)(() => ({
 
   '&:hover': {
     textDecoration: 'none',
-    fontWeight: 'bold',
   },
 
   '&:active': {
