@@ -3,6 +3,7 @@ import { Link } from 'gatsby';
 
 const CustomLink = styled(Link)(() => ({
   color: 'inherit',
+  textDecoration: 'none',
 
   '&:hover': {
     textDecoration: 'none',
