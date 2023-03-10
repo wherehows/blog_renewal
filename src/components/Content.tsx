@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import { CONTENT_LEFT_MARGIN_WIDTH, CONTENT_WIDTH } from '@utils/const';
-import { Link } from 'gatsby';
+import CustomLink from './CustomLink';
 
 interface ContentProps {
   documents?: MarkdownDocument[];
@@ -51,33 +51,28 @@ const MarkdownRenderer = styled('div')(() => ({
   width: '100%',
   fontSize: '1rem',
   a: {
-    color: '#3347ff',
+    color: 'var(--colors-primary)',
     textDecoration: 'none',
     fontWeight: 'bold',
   },
 
   'a:visited': {
-    color: '#3347ff',
+    color: 'var(--colors-primary)',
     fontWieght: 'bold',
   },
 }));
 
-const Button = styled(Link)(() => ({
+const Button = styled(CustomLink)(() => ({
   backgroundColor: 'transparent',
   border: 'none',
   width: '100%',
   padding: 0,
   cursor: 'pointer',
-  color: 'inherit',
   textDecoration: 'none',
   outline: 'none',
+
   '&:hover': {
-    textDecoration: 'none',
-    color: 'inherit',
-  },
-  '&:active': {
-    textDecoration: 'none',
-    color: 'inherit',
+    fontWeight: 'normal',
   },
 }));
 
@@ -85,7 +80,7 @@ const Title = styled('div')(() => ({
   textAlign: 'left',
   width: '100%',
   fontSize: '1.4rem',
-  color: '#d58135',
+  color: 'var(--colors-primary)',
 }));
 
 const PostDate = styled('div')(() => ({

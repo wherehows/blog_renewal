@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Link } from 'gatsby';
+import CustomLink from './CustomLink';
 
 interface CategoryItem {
   folder: GrandParentData[keyof GrandParentData];
@@ -45,27 +45,18 @@ const FolderName = styled('div')(() => ({
   cursor: 'pointer',
   fontSize: '1rem',
   fontWeight: 'bold',
+  color: 'var(--colors-primary)',
 }));
 
-const LinkButton = styled(Link)(() => ({
+const LinkButton = styled(CustomLink)(() => ({
   fontFamily: 'inherit',
   backgroundColor: 'transparent',
   border: 'none',
   cursor: 'pointer',
   fontSize: '1rem',
   padding: '0',
-  color: 'var(--dark-font)',
   textDecoration: 'none',
   outline: 'none',
-
-  '&:hover': {
-    textDecoration: 'none',
-    fontWeight: 'bold',
-  },
-
-  '&:active': {
-    textDecoration: 'none',
-  },
 }));
 
 const ChildListWrapper = styled('li')(() => ({
