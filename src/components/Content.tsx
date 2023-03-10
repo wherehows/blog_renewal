@@ -51,13 +51,13 @@ const MarkdownRenderer = styled('div')(() => ({
   width: '100%',
   fontSize: '1rem',
   a: {
-    color: '#3347ff',
+    color: 'var(--colors-primary)',
     textDecoration: 'none',
     fontWeight: 'bold',
   },
 
   'a:visited': {
-    color: '#3347ff',
+    color: 'var(--colors-primary)',
     fontWieght: 'bold',
   },
 }));
@@ -85,7 +85,7 @@ const Title = styled('div')(() => ({
   textAlign: 'left',
   width: '100%',
   fontSize: '1.4rem',
-  color: '#d58135',
+  color: 'var(--colors-primary)',
 }));
 
 const PostDate = styled('div')(() => ({

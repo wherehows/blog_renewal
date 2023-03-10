@@ -45,6 +45,7 @@ const FolderName = styled('div')(() => ({
   cursor: 'pointer',
   fontSize: '1rem',
   fontWeight: 'bold',
+  color: 'var(--colors-primary)',
 }));
 
 const LinkButton = styled(Link)(() => ({
