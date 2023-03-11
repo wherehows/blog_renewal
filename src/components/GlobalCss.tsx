@@ -13,13 +13,13 @@ const GlobalCss = () => {
         }
 
         :root .dark {
-          --dark-background: #000;
+          --dark-background: #111314;
           --dark-font: #fff;
         }
 
         :root .light {
           --dark-background: #fff;
-          --dark-font: #000;
+          --dark-font: #111314;
         }
 
         *,
