@@ -38,7 +38,7 @@ const getSelectedDocument = (edges: Edge[], targetDocumentPath: string) => {
 
 export const getDocuments = graphql`
   query getDocuments {
-    allMarkdownRemark {
+    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }) {
       edges {
         node {
           frontmatter {
