@@ -25,20 +25,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const Post = path.resolve(`src/templates/Post.tsx`)
   const result = await graphql(`
     {
-      allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
+      allMarkdownRemark(sort: {order: DESC, fields: frontmatter___date}) {
         edges {
           node {
-            html
-            id
             frontmatter {
-              date
-              grandParent
-              title
-              subTitle
-              parent
               slug
             }
           }
@@ -56,9 +46,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     createPage({
       path: node.frontmatter.slug,
       component: Post,
-      context: {
-        allMarkdownRemark: result.data.allMarkdownRemark,
-      },
     })
   })
 }
